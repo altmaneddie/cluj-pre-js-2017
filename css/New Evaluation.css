@@ -1,0 +1,46 @@
+body{
+    box-sizing: border-box;
+    margin-left:15%; 
+    margin-right:15%;
+}
+
+ul{
+  list-style-type: none;
+}
+
+li {
+    width:15%;
+}
+
+li{
+    
+}
+
+#OOP li{
+    float: left;
+}
+
+#OOP ul::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#OOP {
+    font-size: 1.5rem;
+}
+
+table{
+    width:100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+th{
+    background-color: #04b8f9;
+}
+
+#candidate{
+   width:1200px;
+    text-align: center;
+}
