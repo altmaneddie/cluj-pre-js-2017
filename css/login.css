@@ -1,0 +1,29 @@
+body {
+    box-sizing: border-box;
+}
+
+#external {
+    background-image:url(../assets/feedback-banner.jpg);
+        
+}
+
+img {
+/*    float:left;*/
+    height: 20rem;
+    width: 20rem;
+}
+
+
+#fb1 {
+    border-top:2rem;
+}
+
+#fb2 {
+    border-top:2rem;
+}
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: table;
+}
