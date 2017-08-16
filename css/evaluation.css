@@ -1,3 +1,18 @@
 #header {
-    background-color: blue;
+    background-color: #04b8f9;
 }
+
+table {
+    width: 70%;
+    align: center;
+}
+
+th {
+    width:20px;
+    text-align: left;
+    height:65;
+}
+td {
+    height:50px;
+}
+
