@@ -1,0 +1,76 @@
+body {
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+}
+
+
+#tbHeader {
+    background-color: #04b8f9;
+}
+
+#Logout {
+    float:right;
+    margin-right: 3rem;
+    border: none;
+    background-color: white;
+    font-size: 140%;
+}
+
+.borderSwitch{
+    border-bottom: solid thick #cc935b;
+    text-align: center;
+}
+
+.pgSwitch{
+    text-decoration: none;
+    color:black;
+    :visited color: black;
+    font-size: 170%;
+    margin-left: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+#homeLogo {
+    margin-right: 9rem;
+    margin-left: 2rem;
+}
+
+
+
+header {
+}
+
+table {
+    width: 70%;
+    align: center;
+    margin-top: 8rem;
+    border-collapse: collapse;
+}
+
+th {
+    width:20px;
+    text-align: left;
+    height:65;
+}
+td {
+    height:50px;
+    border-bottom: solid thin black;
+}
+
+img {
+    width: 200px;
+}
+
+footer {
+    background-color: dimgray;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+}
