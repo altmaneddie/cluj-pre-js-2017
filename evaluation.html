@@ -1,68 +1,70 @@
 <DOCTYPE html>
     <html>
-        <head><title></title>
 
-            <link rel="stylesheet" type="text/css" href="css/evaluation.css">
-        </head>
+    <head>
+        <title></title>
 
-        <body>
+        <link rel="stylesheet/css" type="text/css" href="assets/css/normalize.css" />
+        <link rel="stylesheet/less" type="text/css" href="assets/css/evaluation.less">
+        <script src="less.js" type="text/javascript"></script>
+    </head>
 
-            <header>
-                <a id="homeLogo" href="login.html"><img src="assets/Logo.png"></a>   
-                <a class="pgSwitch borderSwitch" href="evaluation.html">Evaluations</a>
-<!--                @Alex there are no restrictions on number of classes-->
-                <a class="pgSwitch" href="New%20evaluation.html">New Evaluation</a>
-                <button id="Logout" type="button", Value="Logout", name="Logout">Logout</button>
+    <body>
+
+        <header class="header">
+            <a class="homeLogo" href="login.html"><img src="assets/images/Logo.png" class="header-img"></a>
+            <a class="pgSwitch borderSwitch" href="evaluation.html">Evaluations</a>
+            <a class="pgSwitch" href="NewEvaluation.html">New Evaluation</a>
+            <button class="Logout" type="button" , Value="Logout" , name="Logout">Logout</button>
 
 
-            </header>
+        </header>
 
-            <table align="center">
-                <colgroup>
-<!--                    @Alex the <col> in this case sets the width of each column in the table in raport to the total table width, it helps me stylize it . I could have also used <col> span but I don't think it would have been semantically correct-->
-                    <col style="width:30%">
-                    <col style="width:30%">
-                    <col style="width:30%">
-                    <col style="width:10%">
-                </colgroup>
+        <table align="center">
+            <colgroup>
+                <col style="width:30%">
+                <col style="width:30%">
+                <col style="width:30%">
+                <col style="width:10%">
+            </colgroup>
 
-                <tr id="tbHeader">
-                    <th>Nume</th>
-                    <th>Tehnologie</th>
-                    <th>Nivel</th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <td>Popescu Adrian</td>
-                    <td>Javascript</td>
-                    <td>Mid 2</td>
-                    <td>Detalii <button></button></td>
-<!--                    @Alex now for nothing, but at one point it will have an event handler which at a click will probably transform the button and "Detalii" text into another text input-->
-                </tr>
-                <tr>
-                    <td>Dragan Roxana</td>
-                    <td>PHP</td>
-                    <td>Mid 1</td>
-                    <td>Detalii <button></button></td>
-                </tr>
-                <tr>
-                    <td>Florescu Mihai</td>
-                    <td>Javascript</td>
-                    <td>Junior 3</td>
-                    <td>Detalii <button></button></td>
-                </tr>
-                <tr>
-                    <td>Gheorghe Andrei</td>
-                    <td>Ruby</td>
-                    <td>Senior 1</td>
-                    <td>Detalii <button></button></td>
-                </tr>
-            </table>
+            <tr class="tbHeader">
+                <th>Nume</th>
+                <th>Tehnologie</th>
+                <th>Nivel</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>Popescu Adrian</td>
+                <td>Javascript</td>
+                <td>Mid 2</td>
+                <td>Detalii <button></button></td>
+            </tr>
+            <tr>
+                <td>Dragan Roxana</td>
+                <td>PHP</td>
+                <td>Mid 1</td>
+                <td>Detalii <button></button></td>
+            </tr>
+            <tr>
+                <td>Florescu Mihai</td>
+                <td>Javascript</td>
+                <td>Junior 3</td>
+                <td>Detalii <button></button></td>
+            </tr>
+            <tr>
+                <td>Gheorghe Andrei</td>
+                <td>Ruby</td>
+                <td>Senior 1</td>
+                <td>Detalii <button></button></td>
+            </tr>
+        </table>
 
-            <footer>
-                Copyright@Softvision 2017
-            </footer>
+        <footer>
+            Copyright@Softvision 2017
+        </footer>
 
-            <script src="js/evaluation.js"></script>
-        </body>
+        <script src="js/evaluation.js"></script>
+    </body>
+
     </html> <br>

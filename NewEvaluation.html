@@ -1,565 +1,589 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>New Evaluation</title>
+
+<head>
+    <title>New Evaluation</title>
+
+    <link rel="stylesheet/css" type="text/css" href="assets/css/normalize.css" />
+    <link rel="stylesheet/less" type="text/css" href="assets/css/NewEvaluation.less">
+    <script src="less.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <a class="homeLogo" href="login.html"><img src="assets/images/Logo.png" class="header-img"></a>
+        <a class="pgSwitch" href="evaluation.html">Evaluations</a>
+        <a class="pgSwitch borderSwitch" href="NewEvaluation.html">New Evaluation</a>
+        <button id="Logout" type="button" , Value="Logout" , name="Logout">Logout</button>
 
 
-        <link rel="stylesheet" href="css/NewEvaluation.css">
-    </head>
-    <body>
-        <form method="POST">    
-            <div id="candidate">
-                <input type="text" placeholder="Candidate" name="Candidate">
-                <input type="text" placeholder="Interviewer" name="Interviewer">
-                <input type="date">
-            </div>
+    </header>
 
-            <legend>Technical Level</legend>
-            <div>
-                <table>
-                    <tr>
-                        <th>Trainee</th>
-                        <th>Junior</th>
-                        <th>Mid</th>
-                        <th>Senior</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="radio" name="level" value="1"></td>
-                        <td>
-                            <input type="radio" name="level" value="j1">
-                            <input type="radio" name="level" value="j2">
-                            <input type="radio" name="level" value="j3">
-                        </td>
-                        <td>
-                            <input type="radio" name="level" value="m1">
-                            <input type="radio" name="level" value="m2">
-                            <input type="radio" name="level" value="m3">
-                        </td>
-                        <td>
-                            <input type="radio" name="level" value="s1">
-                            <input type="radio" name="level" value="s2">
-                            <input type="radio" name="level" value="s3">
-                        </td>
-                    </tr>
+    <form class="mainForm" method="POST" action="newEval.php">
+        <div class="dataForm">
+            <input type="text" placeholder="Candidate" name="Candidate">
+            <input type="text" placeholder="Interviewer" name="Interviewer">
+            <input type="date">
+        </div>
 
-
-                </table>
-            </div>
-
-            <legend>Should the candidate be hired?</legend>
-
-            <textarea rows="5" cols="80" placeholder="The type of project that is suitable for the candidate &#13;&#10;Is guidance required for the candidate"></textarea>
+        <legend>Technical Level</legend>
+        <div>
+            <table class="table">
+                <tr class="row1">
+                    <th>Trainee</th>
+                    <th>Junior</th>
+                    <th>Mid</th>
+                    <th>Senior</th>
+                </tr>
+                <tr class="row2">
+                    <td>
+                        <input type="radio" name="level" value="1"></td>
+                    <td>
+                        <input type="radio" name="level" value="j1">
+                        <input type="radio" name="level" value="j2">
+                        <input type="radio" name="level" value="j3">
+                    </td>
+                    <td>
+                        <input type="radio" name="level" value="m1">
+                        <input type="radio" name="level" value="m2">
+                        <input type="radio" name="level" value="m3">
+                    </td>
+                    <td>
+                        <input type="radio" name="level" value="s1">
+                        <input type="radio" name="level" value="s2">
+                        <input type="radio" name="level" value="s3">
+                    </td>
+                </tr>
 
 
-            <legend>General Impression</legend>
+            </table>
+        </div>
+        <div class="impression">
+            <h3>Should the candidate be hired?</h3>
 
-            <textarea rows="5" cols="80" placeholder="*required"></textarea>
-
-
-            <legend>Workflow, Leadership &amp; Soft Skills</legend>
-
-            <textarea rows="5" cols="80" placeholder="Describe the environment in which the candidate works.&#13;&#10;Describe any guidance or management experience"></textarea>
+            <textarea class="textA" rows="5" cols="80" placeholder="The type of project that is suitable for the candidate &#13;&#10;Is guidance required for the candidate"></textarea>
 
 
+            <h3>General Impression</h3>
 
-            <fieldset id="OOP">
-                <legend>OOP, Design Patterns</legend>
-                <ul class="evalForms">
-                    <li>Classes</li>
-                    <li>
-                        <select name="Classes">
-                            <option selected disabled hidden>Evaluation</option>
+            <textarea class="textA" rows="5" cols="80" placeholder="*required"></textarea>
+
+
+            <h3>Workflow, Leadership &amp; Soft Skills</h3>
+
+            <textarea class="textA" rows="5" cols="80" placeholder="Describe the environment in which the candidate works.&#13;&#10;Describe any guidance or management experience"></textarea>
+        </div>
+
+
+        <fieldset id="OOP fieldset">
+            <legend class="evalForms-title">OOP, Design Patterns</legend>
+            <ul class="evalForms">
+                <li>Classes</li>
+                <li>
+                    <select name="Classes">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Exception handling</li>
-                    <li>
-                        <select name="Exception">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Exception handling</li>
+                <li>
+                    <select name="Exception">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Version Control</li>
-                    <li>
-                        <select name="Version">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Version Control</li>
+                <li>
+                    <select name="Version">
+                            <option >Evaluation</option>
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
-                    </li>
-                    <li>Access modifiers</li>
-                    <li>
-                        <select name="Modifiers">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Access modifiers</li>
+                <li>
+                    <select name="Modifiers">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option> 
                         </select>
-                    </li>
-                    <li>Design Patterns</li>
-                    <li>
-                        <select name="Patterns">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Design Patterns</li>
+                <li>
+                    <select name="Patterns">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Issue Tracking</li>
-                    <li>
-                        <select name="Issue">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Issue Tracking</li>
+                <li>
+                    <select name="Issue">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Polymorphism</li>
-                    <li> 
-                        <select name="Polymorphism">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Polymorphism</li>
+                <li>
+                    <select name="Polymorphism">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>RegEx</li>
-                    <li>
-                        <select name="RegEx">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>RegEx</li>
+                <li>
+                    <select name="RegEx">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </fieldset>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </fieldset>
 
 
-            <fieldset id="HTTP">
-                <legend>HTTP</legend>
-                <ul class="evalForms">
-                    <li>Protocol</li>
-                    <li>
-                        <select name="Protocol">
-                            <option selected disabled hidden>Evaluation</option>
+        <fieldset id="HTTP">
+            <legend class="evalForms-title">HTTP</legend>
+            <ul class="evalForms">
+                <li>Protocol</li>
+                <li>
+                    <select name="Protocol">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Response codes</li>
-                    <li>
-                        <select name="Response">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Response codes</li>
+                <li>
+                    <select name="Response">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>REST</li>
-                    <li>
-                        <select name="REST">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>REST</li>
+                <li>
+                    <select name="REST">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Headers</li>
-                    <li>
-                        <select name="Headers">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Headers</li>
+                <li>
+                    <select name="Headers">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option> 
                         </select>
-                    </li>
-                    <li>Request methods</li>
-                    <li>
-                        <select name="Request">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Request methods</li>
+                <li>
+                    <select name="Request">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Sessions &amp; Cookies</li>
-                    <li>
-                        <select name="Sessions">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Sessions &amp; Cookies</li>
+                <li>
+                    <select name="Sessions">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>  
-                </ul>
-                <div class="clearfix"></div>
-                </fieldset>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </fieldset>
 
-            
-            <fieldset id="HTML">
-                <legend>HTML</legend>
-                <ul class="evalForms">
-                    <li>Doctype</li>
-                    <li>
-                        <select name="Doctype">
-                            <option selected disabled hidden>Evaluation</option>
+
+        <fieldset id="HTML">
+            <legend class="evalForms-title">HTML</legend>
+            <ul class="evalForms">
+                <li>Doctype</li>
+                <li>
+                    <select name="Doctype">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Tags</li>
-                    <li>
-                        <select name="Tags" >
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Tags</li>
+                <li>
+                    <select name="Tags">
+                            <option >Evaluation</option>
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
-                    </li>
-                    <li>Basic SEO</li>
-                    <li>
-                        <select name="SEO">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Basic SEO</li>
+                <li>
+                    <select name="SEO">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Syntax rules</li>
-                    <li>
-                        <select name="Syntax">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Syntax rules</li>
+                <li>
+                    <select name="Syntax">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option> 
                         </select>
-                    </li>
-                    <li>Attributes</li>
-                    <li>
-                        <select name="Attributes">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Attributes</li>
+                <li>
+                    <select name="Attributes">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </fieldset>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </fieldset>
 
-            
-            <fieldset id="CSS">
-                <legend>CSS</legend>
-                <ul class="evalForms">
-                    <li>Usage</li>
-                    <li>
-                        <select name="Usage">
-                            <option selected disabled hidden>Evaluation</option>
+
+        <fieldset id="CSS">
+            <legend class="evalForms-title">CSS</legend>
+            <ul class="evalForms">
+                <li>Usage</li>
+                <li>
+                    <select name="Usage">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Box modeling</li>
-                    <li>
-                        <select name="Box">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Box modeling</li>
+                <li>
+                    <select name="Box">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>CSS 3.0</li>
-                    <li>
-                        <select name="CSS3">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>CSS 3.0</li>
+                <li>
+                    <select name="CSS3">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Selectors</li>
-                    <li>
-                        <select name="Selectors">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Selectors</li>
+                <li>
+                    <select name="Selectors">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option> 
                         </select>
-                    </li>
-                    <li>Styling</li>
-                    <li>
-                        <select name="Styling">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Styling</li>
+                <li>
+                    <select name="Styling">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Dynamic Stylesheet</li>
-                    <li>
-                        <select name="Dynamic">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Dynamic Stylesheet</li>
+                <li>
+                    <select name="Dynamic">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>  
-                </ul>
-                <div class="clearfix"></div>
-            </fieldset>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </fieldset>
 
-            
-            <fieldset id="JS">
-                <legend>Javascript</legend>
-                <ul class="evalForms">
-                    <li>Data Types &amp; variables </li>
-                    <li>
-                        <select name="DataTypes" >
-                            <option selected disabled hidden>Evaluation</option>
+
+        <fieldset id="JS">
+            <legend class="evalForms-title">Javascript</legend>
+            <ul class="evalForms">
+                <li>Data Types &amp; variables </li>
+                <li>
+                    <select name="DataTypes">
+                            <option >Evaluation</option>
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
-                    </li>
-                    <li>Object manipulation</li>
-                    <li>
-                        <select name="Object">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Object manipulation</li>
+                <li>
+                    <select name="Object">
+                            <option >Evaluation</option>
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
-                    </li>
-                    <li>DOM Manipulation</li>
-                    <li>
-                        <select name="DOM">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>DOM Manipulation</li>
+                <li>
+                    <select name="DOM">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Functions</li>
-                    <li>
-                        <select name="Functions">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Functions</li>
+                <li>
+                    <select name="Functions">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option> 
                         </select>
-                    </li>
-                    <li>Templating</li>
-                    <li>
-                        <select name="Templating">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Templating</li>
+                <li>
+                    <select name="Templating">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Event handling</li>
-                    <li>
-                        <select name="Event">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Event handling</li>
+                <li>
+                    <select name="Event">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Prototype &amp; OOP</li>
-                    <li> 
-                        <select name="Prototype">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Prototype &amp; OOP</li>
+                <li>
+                    <select name="Prototype">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Testing(unit,E2E)</li>
-                    <li>
-                        <select name="Testing">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Testing(unit,E2E)</li>
+                <li>
+                    <select name="Testing">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>AJAX</li>
-                    <li> 
-                        <select name="AJAX">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>AJAX</li>
+                <li>
+                    <select name="AJAX">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Debugging</li>
-                    <li>
-                        <select name="Debugging">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Debugging</li>
+                <li>
+                    <select name="Debugging">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Websockets</li>
-                    <li> 
-                        <select name="Websockets">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Websockets</li>
+                <li>
+                    <select name="Websockets">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Tooling</li>
-                    <li>
-                        <select name="Tooling">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Tooling</li>
+                <li>
+                    <select name="Tooling">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Libraries</li>
-                    <li> 
-                        <select name="Libraries">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Libraries</li>
+                <li>
+                    <select name="Libraries">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Promises</li>
-                    <li>
-                        <select name="Promises">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Promises</li>
+                <li>
+                    <select name="Promises">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Browser Engines</li>
-                    <li> 
-                        <select name="Browser">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Browser Engines</li>
+                <li>
+                    <select name="Browser">
+                            <option >Evaluation</option>
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                         </select>
-                    </li>
-                    <li>Frameworks</li>
-                    <li>
-                        <select name="Frameworks">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Frameworks</li>
+                <li>
+                    <select name="Frameworks">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </fieldset>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </fieldset>
 
-            
-            <fieldset id="NodeJS">
-                <legend>NodeJS</legend>
-                <ul class="evalForms">
-                    <li>Backend frameworks</li>
-                    <li>
-                        <select name="frameworks">
-                            <option selected disabled hidden>Evaluation</option>
+
+        <fieldset id="NodeJS">
+            <legend class="evalForms-title">NodeJS</legend>
+            <ul class="evalForms">
+                <li>Backend frameworks</li>
+                <li>
+                    <select name="frameworks">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Templating</li>
-                    <li>
-                        <select name="Templating">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Templating</li>
+                <li>
+                    <select name="Templating">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>DOM Manipulation</li>
-                    <li>
-                        <select name="DOMMan">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>DOM Manipulation</li>
+                <li>
+                    <select name="DOMMan">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option>
                         </select>
-                    </li>
-                    <li>Unit Testing</li>
-                    <li>
-                        <select name="UnitTesting">
-                            <option selected disabled hidden>Evaluation</option>
+                </li>
+                <li>Unit Testing</li>
+                <li>
+                    <select name="UnitTesting">
+                            <option >Evaluation</option>
                             <option  value="0">0</option>
                             <option  value="1">1</option>
                             <option  value="2">2</option>
                             <option  value="3">3</option> 
                         </select>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </fieldset>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </fieldset>
+        <div>
+            <input type="submit" class="submitBtn" value="SUBMIT">
+            <div class="clearfix"></div>
+        </div>
+    </form>
 
-        </form>    
-    </body>
-</html> <br>
+    <footer class="footer">
+        <span>Copyright @Softvision 2017</span>
+    </footer>
+
+
+    <script src="js/newEddie.js"></script>
+</body>
+
+</html>
