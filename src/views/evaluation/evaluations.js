@@ -39,9 +39,7 @@ function EvaluationsPage(options = {}) {
    `
 }
 
-// function EvaluationsTableHeader(options, tag) {
-//     return `<${tag}>${options.join(`<${tag}></${tag}>`)}<${tag}>`;
-// }
+
 
 function EvaluationsTableHeader(options) {
     const headings = [];
@@ -63,7 +61,7 @@ function EvaluationTableRow(options={}){
 <tr>
     <td>${options.name}</td>
     <td>${options.technology}</td>
-    <td>${options.level} 2</td>
+    <td>${options.level} </td>
     <td>Detalii <button></button></td>
 </tr>
     `

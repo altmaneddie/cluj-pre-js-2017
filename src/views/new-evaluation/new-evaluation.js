@@ -1,7 +1,12 @@
 function NewEvaluationForm(options){
+    const technicalObj = getTechinicalData()   ;
+    const textareaObj = getTextareaData();
+
+
     return `
     ${CandidateDetailsform()}
-    ${TechnicalLevelPicker()}
+    ${TechnicalLevelPicker(technicalObj)}
+    ${Textarea(textareaObj)}
     
     `
 }
@@ -18,47 +23,55 @@ function CandidateDetailsform(options={}){
      `
 }
 
-function TechnicalLevelPicker(options={}){
-    return`
-    <h1>Technical Level</h1>
-    <div>
-        <table class="table">
-            <tr class="row1">
-                <th>Trainee</th>
-                <th>Junior</th>
-                <th>Mid</th>
-                <th>Senior</th>
-            </tr>
-            <tr class="row2">
-                <td>
-                    <input type="radio" name="level" value="1"></td>
-                <td>
-                    <input type="radio" name="level" value="j1">
-                    <input type="radio" name="level" value="j2">
-                    <input type="radio" name="level" value="j3">
-                </td>
-                <td>
-                    <input type="radio" name="level" value="m1">
-                    <input type="radio" name="level" value="m2">
-                    <input type="radio" name="level" value="m3">
-                </td>
-                <td>
-                    <input type="radio" name="level" value="s1">
-                    <input type="radio" name="level" value="s2">
-                    <input type="radio" name="level" value="s3">
-                </td>
-            </tr>
 
 
-        </table>
-    </div>
-    `
+function TechinicalLevelrow1Creator(options) {
+    return `<th>${options.headings.join(`</th><th>`)}</th>`
+};
+
+function TechinicalLevelrow2Creator(options) {
+
+    let newArr = []
+
+    options.columnData.forEach(function (k) {
+        newArr.push(`
+        <td>
+            ${k.inputLevels.map(function (j) {
+                return `
+            <input type="radio" name="level" value="${j}">
+            `}).join('')}
+     </td>`)
+    })
+    return newArr.join("");
 }
 
-function Textarea(options={},label={})
+function Textarea(options={}){
+
+        
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 window.onload = function(){
     const appEl = document.querySelector("#app");
     appEl.innerHTML = NewEvaluationForm();
 }
+
 

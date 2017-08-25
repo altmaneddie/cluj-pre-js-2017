@@ -1,3 +1,7 @@
+
+
+
+// /\/\/\/\/\//\/\/\/\/\//\/\/\/\/\//\/\/\/\/\//\/\/\/\/\//\/\/\/\/\//\/\/\/\/\//\/\/\/\/\//\/\/\/\/\/
 const parents = document.getElementsByTagName("SELECT");
 const optionsAttr = ["selected", "disabled", "hidden"];
 
@@ -12,6 +16,8 @@ for (let i=0; i<parents.length; i++){
 }
 
 
-// function EvaluationsTableHeader(options, tag) {
-//     return `<${tag}>${options.join(`<${tag}></${tag}>`)}<${tag}>`;
-// }
+
+// /\/\/\/\/\//\/\/\/\/\//\/\/\/\/\//\/\/\/\/\//\/\/\/\/\//\/\/\/\/\//\/\/\/\/\//\/\/\/\/\//\/\/\/\/\//\/\/\/\/\/
+function EvaluationsTableHeader(options, tag) {
+    return `<${tag}>${options.join(`<${tag}></${tag}>`)}<${tag}>`;
+}

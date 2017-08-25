@@ -19,8 +19,8 @@ const LoginContainer = function(){
 const LoginForm = function(){
     return `
     <form class="login-form" method="POST" action="users.php">
-        <input type="text" name="userName" placeholder="User Name"> <br>
-        <input type="password" name="pw" placeholder="Password"> <br>
+        <input type="text" name="userName" placeholder="User Name"> 
+        <input type="password" name="pw" placeholder="Password">
         <input type="submit" name="login" value="Login">
     </form>
     `
