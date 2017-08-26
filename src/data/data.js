@@ -67,7 +67,7 @@ function getFieldsetData() {
                         label: "RegEx",
                         options: ["0", "1", "2", "3"]
                     }
-                ],
+                ]},
                 {
                 legend: "HTTP",
                 ul: [
@@ -95,7 +95,7 @@ function getFieldsetData() {
                         label: "Sessions &amp; Cookies",
                         options: ["0", "1", "2", "3"]
                     }
-                ],
+                ]},
             {
                 legend: "HTML",
                 ul: [
@@ -119,7 +119,7 @@ function getFieldsetData() {
                         label: "Attributes",
                         options: ["0", "1", "2", "3"]
                     }
-                ],
+                ]},
                 {
                 legend: "CSS",
                 ul: [
@@ -147,7 +147,7 @@ function getFieldsetData() {
                         label: "Dynamic Stylesheet",
                         options: ["0", "1", "2", "3"]
                     }
-                ],
+                ]},
                 {
                 legend: "Javascript",
                 ul: [
@@ -215,7 +215,7 @@ function getFieldsetData() {
                         label: "Frameworks",
                         options: ["0", "1", "2", "3"]
                     }
-                ],
+                ]},
                     {
                 legend: "NodeJS",
                 ul: [
@@ -235,8 +235,7 @@ function getFieldsetData() {
                         label: "Unit Testing",
                         options: ["0", "1", "2", "3"]
                     }
-                ]
-            }
-        ]
-    }
+                ]}
+            ] 
+        }
 }

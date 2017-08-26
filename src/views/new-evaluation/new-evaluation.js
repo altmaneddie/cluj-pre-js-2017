@@ -8,7 +8,7 @@ function NewEvaluationForm(options = {}) {
     `
 }
 
-
+// Candidate details function STATIC
 function CandidateDetailsForm(options = {}) {
     return `
         <form class="main-form" method="POST" action="newEval.php">
@@ -19,6 +19,8 @@ function CandidateDetailsForm(options = {}) {
         </div>
      `
 }
+
+// Technical Level creation functions
 
 function TechnicalLevelRow1Creator(options) {
     return `<th>${options.headings.join('</th><th>')}</th>`
@@ -53,36 +55,38 @@ function TechnicalLevelPicker(options = {}) {
     `
 }
 
-function TextareaCreator(options){
-   return options.textarea.map(function(k){
-      return `<h3>${k.label}</h3>
+// Textarea creation functions
+
+function TextareaCreator(options) {
+    return options.textarea.map(function (k) {
+        return `<h3>${k.label}</h3>
         <textarea class="textA" rows="5" cols="80" placeholder="${k.placeholder}"></textarea>
         `}).join('')
-    }
+}
 
-function Textarea(options= {}) {
+function Textarea(options = {}) {
     return `
     <div class="impression">
     ${TextareaCreator(options)}
     </div>
     `
 }
+// Fieldset creation functions
 
-function FieldsetUlCreator(options){
-
-    options.fieldset.map(k) =>
+function FieldsetCreator(options) {
+    options.fieldset.map((k) =>
     `
     <legend class="eval-forms-title">${k.legend}</legend>
     <ul class="eval-forms">
     ${FieldsetLiCreator}
     </ul>
-    `
+    `)
 }
 
 
 function FieldsetLiCreator(options) {
     options.ul.map((m) =>
-    `
+        `
     <li>${m.label}</li>
     <li>
         <select name="${m.label} To use string.replace">
@@ -91,12 +95,12 @@ function FieldsetLiCreator(options) {
 `)
 }
 
-function FieldsetOptionsCreator(options){
-      return  options.options.map((n) =>
-            `
+function FieldsetOptionsCreator(options) {
+    return options.options.map((n) =>
+        `
             <option  value="${n}">${n}</option>
             `
-        ).join('')
+    ).join('')
 }
 
 
