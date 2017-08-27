@@ -5,6 +5,7 @@ function NewEvaluationForm(options = {}) {
     ${CandidateDetailsForm()}
     ${TechnicalLevelPicker(technicalObj)}
     ${Textarea(textareaObj)}
+    ${Fieldset(getFieldsetData)}
     `
 }
 
@@ -73,9 +74,9 @@ function Textarea(options = {}) {
 }
 // Fieldset creation functions
 
-function FieldsetCreator(options) {
+function Fieldset(options) {
     options.fieldset.map((k) =>
-    `
+        `
     <legend class="eval-forms-title">${k.legend}</legend>
     <ul class="eval-forms">
     ${FieldsetLiCreator}
