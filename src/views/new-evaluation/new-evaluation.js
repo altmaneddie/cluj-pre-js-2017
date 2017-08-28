@@ -1,11 +1,12 @@
 function NewEvaluationForm(options = {}) {
     const technicalObj = getTechnicalData();
     const textareaObj = getTextareaData();
+    const fieldsetObj = getFieldsetData();
     return `
     ${CandidateDetailsForm()}
     ${TechnicalLevelPicker(technicalObj)}
     ${Textarea(textareaObj)}
-    ${Fieldset(getFieldsetData)}
+    ${Fieldset(fieldsetObj)}
     `
 }
 
@@ -23,11 +24,11 @@ function CandidateDetailsForm(options = {}) {
 
 // Technical Level creation functions
 
-function TechnicalLevelRow1Creator(options) {
+function TechnicalLevelHeaderCreator(options) {
     return `<th>${options.headings.join('</th><th>')}</th>`
 };
 
-function TechnicalLevelRow2Creator(options) {
+function TechnicalLevelOptCreator(options) {
 
     let newArr = []
 
@@ -47,10 +48,10 @@ function TechnicalLevelPicker(options = {}) {
     return `
     <table class="table">
     <tr class="row1">
-        ${TechnicalLevelRow1Creator(options)}
+        ${TechnicalLevelOptCreator(options)}
     </tr>
     <tr class="row2">
-        ${TechnicalLevelRow2Creator(options)}
+        ${TechnicalLevelOptCreator(options)}
     </tr>
     </table>
     `
@@ -75,25 +76,25 @@ function Textarea(options = {}) {
 // Fieldset creation functions
 
 function Fieldset(options) {
-    options.fieldset.map((k) =>
+  return  options.fieldset.map((k) =>
         `
     <legend class="eval-forms-title">${k.legend}</legend>
     <ul class="eval-forms">
     ${FieldsetLiCreator}
     </ul>
-    `)
+    `).join('')
 }
 
 
 function FieldsetLiCreator(options) {
-    options.ul.map((m) =>
+    return options.ul.map((m) =>
         `
     <li>${m.label}</li>
     <li>
         <select name="${m.label} To use string.replace">
         ${FieldsetOptionsCreator(options)}
         </select>
-`)
+`).join('')
 }
 
 function FieldsetOptionsCreator(options) {
