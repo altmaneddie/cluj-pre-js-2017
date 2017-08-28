@@ -1,3 +1,5 @@
+
+//page creator
 function NewEvaluationForm(options = {}) {
     const technicalObj = getTechnicalData();
     const textareaObj = getTextareaData();
@@ -48,7 +50,7 @@ function TechnicalLevelPicker(options = {}) {
     return `
     <table class="table">
     <tr class="row1">
-        ${TechnicalLevelOptCreator(options)}
+        ${TechnicalLevelHeaderCreator(options)}
     </tr>
     <tr class="row2">
         ${TechnicalLevelOptCreator(options)}
@@ -61,7 +63,8 @@ function TechnicalLevelPicker(options = {}) {
 
 function TextareaCreator(options) {
     return options.textarea.map(function (k) {
-        return `<h3>${k.label}</h3>
+        return 
+        `<h3>${k.label}</h3>
         <textarea class="textA" rows="5" cols="80" placeholder="${k.placeholder}"></textarea>
         `}).join('')
 }
@@ -77,7 +80,7 @@ function Textarea(options = {}) {
 
 function Fieldset(options) {
   return  options.fieldset.map((k) =>
-        `
+    `
     <legend class="eval-forms-title">${k.legend}</legend>
     <ul class="eval-forms">
     ${FieldsetLiCreator(k)}
@@ -87,7 +90,8 @@ function Fieldset(options) {
 
 
 function FieldsetLiCreator(options) {
-    return options.ul.map((m) =>`
+    return options.ul.map((m) =>
+    `
     <li>${m.label}</li>
     <li>
         <select name="${m.label} To use string.replace">
@@ -100,15 +104,33 @@ function FieldsetLiCreator(options) {
 function FieldsetOptionsCreator(options) {
     return options.options.map((n) =>
         `
-            <option  value="${n}">${n}</option>
-            `
-    ).join('')
+        <option  value="${n}">${n}</option>
+        `).join('')
 }
 
-
+// Call on the whole page creator
 window.onload = function () {
     const appEl = document.querySelector("#app");
     appEl.innerHTML = NewEvaluationForm();
+    fieldsetEvalOptAdder(fieldsetParentOfOption);
 }
+
+
+//create the "Evaluation" option
+
+const fieldsetParentOfOption = document.getElementsByTagName('SELECT');
+const fieldsetEvalNode = function(){
+    return 
+    `
+    <option selected disabled hidden>Evaluation</option>
+    `}
+
+function fieldsetEvalOptAdder(parents){
+    parents.map(function(sel){
+        sel.insertBefore(fieldsetEvalNode,sel.firstChild);
+    })
+}
+
+
 
 
