@@ -80,20 +80,20 @@ function Fieldset(options) {
         `
     <legend class="eval-forms-title">${k.legend}</legend>
     <ul class="eval-forms">
-    ${FieldsetLiCreator}
+    ${FieldsetLiCreator(k)}
     </ul>
     `).join('')
 }
 
 
 function FieldsetLiCreator(options) {
-    return options.ul.map((m) =>
-        `
+    return options.ul.map((m) =>`
     <li>${m.label}</li>
     <li>
         <select name="${m.label} To use string.replace">
-        ${FieldsetOptionsCreator(options)}
+        ${FieldsetOptionsCreator(m)}
         </select>
+        </li>
 `).join('')
 }
 
