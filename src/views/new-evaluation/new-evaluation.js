@@ -126,9 +126,10 @@ const fieldsetEvalNode = function(){
     `}
 
 function fieldsetEvalOptAdder(parents){
-    parents.map(function(sel){
-        sel.insertBefore(fieldsetEvalNode,sel.firstChild);
-    })
+ console.log([parents]);
+    // parents.map(function(sel){
+    //     sel.insertBefore(fieldsetEvalNode,sel.firstChild);
+    // })
 }
 
 
