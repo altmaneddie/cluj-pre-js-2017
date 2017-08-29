@@ -4,5 +4,7 @@ function addEventstoLogin(){
     e.preventDefault();
     theBody.innerHTML ='';
     theBody.innerHTML = EvaluationsPage();
-    })  
+    addEventstoEval();
+    })
+    
 }
