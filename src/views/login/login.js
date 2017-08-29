@@ -1,16 +1,14 @@
 function LoginPage() {
 
-    const loginPageObj = getLoginPageData();
-
 return `
-${LoginContainer()};
-${SubmitFeedbackSection(loginPageData)};
-${SubmitFeedbackResults(loginPageData)};
-${Footer()};
+${LoginContainer()}
+${SubmitFeedbackSection()}
+${SubmitFeedbackResults()}
+${Footer()}
 `
 }
 
-const LoginContainer = function(){
+function LoginContainer(){
     return`<section class="feedback grid">
     ${LoginHeader()}
     ${LoginForm()}
@@ -19,29 +17,23 @@ const LoginContainer = function(){
     `
 }
 
-const LoginForm = function(){
+function LoginForm(){
     return `
-    <form class="login-form" method="POST" action="users.php">
+    <form class="login-form" method="POST">
         <input type="text" name="userName" placeholder="User Name"> 
         <input type="password" name="pw" placeholder="Password">
-        <input type="submit" name="login" value="Login">
+        <input type="submit" id="submit-btn" name="login" value="Login">
     </form>
     `
 }
 
-const LoginHeader = function(){
+function LoginHeader(){
     return `
-    <img src="assets/images/new feedback.jpg" class="floatLeft floatLeft-img">
-    <h4 class="login-header">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-    specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-    essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-    passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
-    Ipsum</h4>
+    <p>Interview Feedback</p>
     `
 }
 
-const SubmitFeedbackSection = function(){
+function SubmitFeedbackSection(){
     return `
     <section class="feedback grid">
     <img src="assets/images/new feedback.jpg" class="floatLeft floatLeft-img">
@@ -58,8 +50,7 @@ const SubmitFeedbackSection = function(){
     `
 }
 
-
-const SubmitFeedbackResults = function(){
+function SubmitFeedbackResults(){
     return `
     <section class="feedback grid">
     <img src="assets/images/results.jpg" class="floatRight floatRight-img">
@@ -74,17 +65,4 @@ const SubmitFeedbackResults = function(){
     <div class="clearfix"></div>
 </section>
     `
-}
-
-const Footer = function(){
-    return `
-    <footer class="footer">
-    Copyright@Softvision 2017
-    </footer>
-    `
-}
-
-window.onload = function (){
-const theBody = document.querySelector("BODY");
-theBody.innerHTML = LoginPage();
 }

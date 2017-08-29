@@ -110,13 +110,6 @@ function FieldsetOptionsCreator(options) {
         `).join('')
 }
 
-// Call on the whole page creator
-window.onload = function () {
-    const appEl = document.querySelector("#app");
-    appEl.innerHTML = NewEvaluationForm();
-    fieldsetEvalOptAdder(fieldsetParentOfOption);
-}
-
 
 //create the "Evaluation" option
 
