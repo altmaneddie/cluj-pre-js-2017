@@ -113,19 +113,19 @@ function FieldsetOptionsCreator(options) {
 
 //create the "Evaluation" option
 
-const fieldsetParentOfOption = document.getElementsByTagName('SELECT');
-const fieldsetEvalNode = function(){
-    return 
-    `
-    <option selected disabled hidden>Evaluation</option>
-    `}
+// const fieldsetParentOfOption = document.getElementsByTagName('SELECT');
+// const fieldsetEvalNode = function(){
+//     return 
+//     `
+//     <option selected disabled hidden>Evaluation</option>
+//     `}
 
-function fieldsetEvalOptAdder(parents){
- console.log([parents]);
-    // parents.map(function(sel){
-    //     sel.insertBefore(fieldsetEvalNode,sel.firstChild);
-    // })
-}
+// function fieldsetEvalOptAdder(parents){
+//  console.log([parents]);
+//     // parents.map(function(sel){
+//     //     sel.insertBefore(fieldsetEvalNode,sel.firstChild);
+//     // })
+// }
 
 
 
