@@ -5,10 +5,12 @@ function NewEvaluationForm(options = {}) {
     const textareaObj = getTextareaData();
     const fieldsetObj = getFieldsetData();
     return `
+    ${Nav()}
     ${CandidateDetailsForm()}
     ${TechnicalLevelPicker(technicalObj)}
     ${Textarea(textareaObj)}
     ${Fieldset(fieldsetObj)}
+    ${Footer()};
     `
 }
 
@@ -32,19 +34,19 @@ function TechnicalLevelHeaderCreator(options) {
 
 function TechnicalLevelOptCreator(options) {
 
-    let newArr = []
-
-    options.columnData.forEach(function (k) {
-        newArr.push(`
-        <td>
-            ${k.inputLevels.map(function (j) {
-                return `
-            <input type="radio" name="level" value="${j}">
-            `}).join('')}
-     </td>`)
-    })
-    return newArr.join('');
+   return options.columnData.map((k) =>
+     `<td>
+        ${TechnicalLevelRowCreator(k.inputLevels)}
+       </td> `
+    ).join('')
 }
+
+function TechnicalLevelRowCreator(options){
+    return options.map((m) => `
+    <input type="radio" name="level" value="${m}">
+    `).join('')
+}
+
 
 function TechnicalLevelPicker(options = {}) {
     return `

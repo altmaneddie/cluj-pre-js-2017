@@ -1,12 +1,4 @@
-const Footer = function(){
-    return `
-<footer>
-    Copyright@Softvision 2017
-</footer>
-    `
-}
-
-function nav(options= {}){
+function Nav(options= {}){
     return `
   <header class="header">
   <a class="home-logo" href="login.html"><img src="assets/images/Logo.png" class="header-img"></a>
@@ -17,3 +9,12 @@ function nav(options= {}){
   `
   };
   
+
+const Footer = function(){
+    return `
+<footer>
+    Copyright@Softvision 2017
+</footer>
+    `
+}
+

@@ -1,36 +1,9 @@
 function EvaluationsPage(options = {}) {
-    const headings = { 
-        headings: ["Nume", "Technology", "Nivel", ""] 
-        }
-
-    const rows =[
-        {
-            name: "Adrian Popescu",
-            technology: "Javascript",
-            level: "mid"
-        },
-    
-        {
-            name: "Adrian Popescu2",
-            technology: "Javascript2",
-            level: "mid2"
-        },
-    
-        {
-            name: "Adrian Popescu3",
-            technology: "Javascript3",
-            level: "mid3"
-        },
-        
-        {
-            name: "Adrian Popescu4",
-            technology: "Javascript4",
-            level: "mid4"
-        }
-    ];
-
+    const tableData = getEvalTableData();
+    const headings = tableData.headings;
+    const rows = tableData.rows;
     return `
-    ${nav()}
+    ${Nav()}
     ${EvaluationsTable({
         items: rows,
         itemHeadings: headings
@@ -38,7 +11,6 @@ function EvaluationsPage(options = {}) {
     ${Footer()}
    `
 }
-
 
 
 function EvaluationsTableHeader(options) {
@@ -52,7 +24,7 @@ function EvaluationsTableHeader(options) {
     <tr>
         ${headingsEl}
     </tr>
-    `;
+    `
 }
 
 
