@@ -1,30 +1,18 @@
 function EvaluationsPage(options = {}) {
     const tableData = getEvalTableData();
-    const headings = tableData.headings;
-    const rows = tableData.rows;
+    
     return `
     ${Nav()}
-    ${EvaluationsTable({
-        items: rows,
-        itemHeadings: headings
-    })}
+    ${EvaluationsTable(tableData)}
     ${Footer()}
    `
 }
 
 
 function EvaluationsTableHeader(options) {
-    const headings = [];
-    options.headings.forEach(function(el) {
-        const generatedEl = `<th>${el}</th>`;
-        headings.push(generatedEl);
-    });
-    const headingsEl = `${headings.join('')} `;
-    return `
-    <tr>
-        ${headingsEl}
-    </tr>
-    `
+   return options.map((el) => 
+         `<th>${el}</th>`
+    ).join('')
 }
 
 
@@ -40,20 +28,10 @@ function EvaluationTableRow(options={}){
 }
 
 function EvaluationTableBody(options = {}) {
-
-const rowsElements = [];
-
-options.items.forEach(function(rowObj){
-    const generatedRow = EvaluationTableRow(rowObj);
-    rowsElements.push(generatedRow);
-});
-
-const rowsEl = rowsElements.join('');
-return `
-<tbody>
-    ${rowsEl};
-</tbody>
-`
+return options.map((k) => 
+`<tbody>
+${EvaluationTableRow(k)}
+</tbody>`).join('');
 }
 
 
@@ -66,12 +44,8 @@ function EvaluationsTable(options = {}) {
         <col style="width:30%">
         <col style="width:10%">
     </colgroup>
-        ${EvaluationsTableHeader({
-         headings: ['Nume','Tehnologie','Nivel']
-        })};
-            ${EvaluationTableBody({
-            items: options.items
-        })}
+        ${EvaluationsTableHeader(options.headings)}
+        ${EvaluationTableBody(options.rows)}
 </table>
     `
 }
@@ -79,5 +53,4 @@ function EvaluationsTable(options = {}) {
 window.onload = function () {
     const appEl = document.querySelector("#app");
     appEl.innerHTML = EvaluationsPage()
-
 }

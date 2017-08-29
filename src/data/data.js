@@ -1,3 +1,20 @@
+// Login page
+
+function getLoginPageData() {
+    return {
+        Feedback :[
+            { header: "Submit new feedback",
+              paragraph: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+            }
+        ,
+            { header: "View feedback results",
+              paragraph: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+            }
+        ]
+    }
+}
+
+
 // Evaluations page
 function getEvalTableData(){
     return {
@@ -6,25 +23,25 @@ function getEvalTableData(){
             {
                 name: "Adrian Popescu",
                 technology: "Javascript",
-                level: "mid"
+                level: "Mid 2"
             },
         
             {
-                name: "Adrian Popescu2",
-                technology: "Javascript2",
-                level: "mid2"
+                name: "Dragan Roxana",
+                technology: "PHP",
+                level: "Mid 1"
             },
         
             {
-                name: "Adrian Popescu3",
-                technology: "Javascript3",
-                level: "mid3"
+                name: "Florescu Mihai",
+                technology: "Javascript",
+                level: "Junior 3"
             },
             
             {
-                name: "Adrian Popescu4",
-                technology: "Javascript4",
-                level: "mid4"
+                name: "Gheorghe Andrei",
+                technology: "Ruby",
+                level: "Senior 1"
             }
         ]
     }
@@ -52,15 +69,15 @@ function getTextareaData() {
         textarea:
         [{
             label: 'Should the candidate be hired?',
-            placeholder: 'The type of project that is suitable for the candidate &#13;&#10;Is guidance required for the candidate',
+            placeholder: 'The type of project that is suitable for the candidate &#13;&#10;Is guidance required for the candidate'
         },
         {
             label: 'General Impression',
-            placeholder: '*required',
+            placeholder: '*required'
         },
         {
             label: 'Workflow, Leadership &amp; Soft Skills',
-            placeholder: 'Describe the environment in which the candidate works.&#13;&#10;Describe any guidance or management experience',
+            placeholder: 'Describe the environment in which the candidate works.&#13;&#10;Describe any guidance or management experience'
         }],
     };
 }
