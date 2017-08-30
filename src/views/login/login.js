@@ -1,13 +1,14 @@
-const LoginPage = function() {
+function LoginPage() {
+
 return `
-${LoginContainer()};
-${SubmitFeedbackSection()};
-${SubmitFeedbackResults()};
-${Footer()};
+${LoginContainer()}
+${SubmitFeedbackSection()}
+${SubmitFeedbackResults()}
+${Footer()}
 `
 }
 
-const LoginContainer = function(){
+function LoginContainer(){
     return`<section class="feedback grid">
     ${LoginHeader()}
     ${LoginForm()}
@@ -16,24 +17,23 @@ const LoginContainer = function(){
     `
 }
 
-const LoginForm = function(){
+function LoginForm(){
     return `
-    <form class="login-form" method="POST" action="users.php">
-        <input type="text" name="userName" placeholder="User Name"> <br>
-        <input type="password" name="pw" placeholder="Password"> <br>
-        <input type="submit" name="login" value="Login">
+    <form class="login-form" method="POST">
+        <input type="text" name="userName" placeholder="User Name"> 
+        <input type="password" name="pw" placeholder="Password">
+        <input type="submit" id="submit-btn" name="login" value="Login">
     </form>
     `
 }
 
-const LoginHeader = function(){
+function LoginHeader(){
     return `
-    <img src="assets/images/new feedback.jpg" class="floatLeft floatLeft-img">
-    <h4 class="login-header">Interview Feedback</h4>
+    <p>Interview Feedback</p>
     `
 }
 
-const SubmitFeedbackSection = function(){
+function SubmitFeedbackSection(){
     return `
     <section class="feedback grid">
     <img src="assets/images/new feedback.jpg" class="floatLeft floatLeft-img">
@@ -50,8 +50,7 @@ const SubmitFeedbackSection = function(){
     `
 }
 
-
-const SubmitFeedbackResults = function(){
+function SubmitFeedbackResults(){
     return `
     <section class="feedback grid">
     <img src="assets/images/results.jpg" class="floatRight floatRight-img">
@@ -66,17 +65,4 @@ const SubmitFeedbackResults = function(){
     <div class="clearfix"></div>
 </section>
     `
-}
-
-const Footer = function(){
-    return `
-    <footer class="footer">
-    Copyright@Softvision 2017
-    </footer>
-    `
-}
-
-window.onload = function (){
-const theBody = document.querySelector("BODY");
-theBody.innerHTML = LoginPage();
 }

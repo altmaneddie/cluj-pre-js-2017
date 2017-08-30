@@ -1,13 +1,21 @@
-function NewEvaluationForm(options){
+
+//page creator
+function NewEvaluationForm(options = {}) {
+    const technicalObj = getTechnicalData();
+    const textareaObj = getTextareaData();
+    const fieldsetObj = getFieldsetData();
     return `
-    ${CandidateDetailsform()}
-    ${TechnicalLevelPicker()}
-    
+    ${Nav()}
+    ${CandidateDetailsForm()}
+    ${TechnicalLevelPicker(technicalObj)}
+    ${Textarea(textareaObj)}
+    ${Fieldset(fieldsetObj)}
+    ${Footer()};
     `
 }
 
-
-function CandidateDetailsform(options={}){
+// Candidate details function STATIC
+function CandidateDetailsForm(options = {}) {
     return `
         <form class="main-form" method="POST" action="newEval.php">
         <div class="data-form">
@@ -18,47 +26,107 @@ function CandidateDetailsform(options={}){
      `
 }
 
-function TechnicalLevelPicker(options={}){
-    return`
-    <h1>Technical Level</h1>
-    <div>
-        <table class="table">
-            <tr class="row1">
-                <th>Trainee</th>
-                <th>Junior</th>
-                <th>Mid</th>
-                <th>Senior</th>
-            </tr>
-            <tr class="row2">
-                <td>
-                    <input type="radio" name="level" value="1"></td>
-                <td>
-                    <input type="radio" name="level" value="j1">
-                    <input type="radio" name="level" value="j2">
-                    <input type="radio" name="level" value="j3">
-                </td>
-                <td>
-                    <input type="radio" name="level" value="m1">
-                    <input type="radio" name="level" value="m2">
-                    <input type="radio" name="level" value="m3">
-                </td>
-                <td>
-                    <input type="radio" name="level" value="s1">
-                    <input type="radio" name="level" value="s2">
-                    <input type="radio" name="level" value="s3">
-                </td>
-            </tr>
+// Technical Level creation functions
+
+function TechnicalLevelHeaderCreator(options) {
+    return `<th>${options.headings.join('</th><th>')}</th>`
+};
+
+function TechnicalLevelOptCreator(options) {
+
+   return options.columnData.map((k) =>
+     `<td>
+        ${TechnicalLevelRowCreator(k.inputLevels)}
+       </td> `
+    ).join('')
+}
+
+function TechnicalLevelRowCreator(options){
+    return options.map((m) => `
+    <input type="radio" name="level" value="${m}">
+    `).join('')
+}
 
 
-        </table>
-    </div>
+function TechnicalLevelPicker(options = {}) {
+    return `
+    <table class="table">
+    <tr class="row1">
+        ${TechnicalLevelHeaderCreator(options)}
+    </tr>
+    <tr class="row2">
+        ${TechnicalLevelOptCreator(options)}
+    </tr>
+    </table>
     `
 }
 
-function Textarea(options={},label={})
+// Textarea creation functions
 
-window.onload = function(){
-    const appEl = document.querySelector("#app");
-    appEl.innerHTML = NewEvaluationForm();
+function TextareaCreator(options) {
+    return options.textarea.map(function (k) {
+        return 
+        `<h3>${k.label}</h3>
+        <textarea class="textA" rows="5" cols="80" placeholder="${k.placeholder}"></textarea>
+        `}).join('')
 }
+
+function Textarea(options = {}) {
+    return `
+    <div class="impression">
+    ${TextareaCreator(options)}
+    </div>
+    `
+}
+// Fieldset creation functions
+
+function Fieldset(options) {
+  return  options.fieldset.map((k) =>
+    `
+    <legend class="eval-forms-title">${k.legend}</legend>
+    <ul class="eval-forms">
+    ${FieldsetLiCreator(k)}
+    </ul>
+    `).join('')
+}
+
+
+function FieldsetLiCreator(options) {
+    return options.ul.map((m) =>
+    `
+    <li>${m.label}</li>
+    <li>
+        <select name="${m.label} To use string.replace">
+        ${FieldsetOptionsCreator(m)}
+        </select>
+        </li>
+`).join('')
+}
+
+function FieldsetOptionsCreator(options) {
+    return options.options.map((n) =>
+        `
+        <option  value="${n}">${n}</option>
+        `).join('')
+}
+
+
+//create the "Evaluation" option
+
+// const fieldsetParentOfOption = document.getElementsByTagName('SELECT');
+// const fieldsetEvalNode = function(){
+//     return 
+//     `
+//     <option selected disabled hidden>Evaluation</option>
+//     `}
+
+// function fieldsetEvalOptAdder(parents){
+//  console.log([parents]);
+//     // parents.map(function(sel){
+//     //     sel.insertBefore(fieldsetEvalNode,sel.firstChild);
+//     // })
+// }
+
+
+
 

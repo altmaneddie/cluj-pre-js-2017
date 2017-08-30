@@ -1,60 +1,18 @@
 function EvaluationsPage(options = {}) {
-    const headings = { 
-        headings: ["Nume", "Technology", "Nivel", ""] 
-        }
-
-    const rows =[
-        {
-            name: "Adrian Popescu",
-            technology: "Javascript",
-            level: "mid"
-        },
+    const tableData = getEvalTableData();
     
-        {
-            name: "Adrian Popescu2",
-            technology: "Javascript2",
-            level: "mid2"
-        },
-    
-        {
-            name: "Adrian Popescu3",
-            technology: "Javascript3",
-            level: "mid3"
-        },
-        
-        {
-            name: "Adrian Popescu4",
-            technology: "Javascript4",
-            level: "mid4"
-        }
-    ];
-
     return `
-    ${nav()}
-    ${EvaluationsTable({
-        items: rows,
-        itemHeadings: headings
-    })}
+    ${Nav()}
+    ${EvaluationsTable(tableData)}
     ${Footer()}
    `
 }
 
-// function EvaluationsTableHeader(options, tag) {
-//     return `<${tag}>${options.join(`<${tag}></${tag}>`)}<${tag}>`;
-// }
 
 function EvaluationsTableHeader(options) {
-    const headings = [];
-    options.headings.forEach(function(el) {
-        const generatedEl = `<th>${el}</th>`;
-        headings.push(generatedEl);
-    });
-    const headingsEl = `${headings.join('')} `;
-    return `
-    <tr>
-        ${headingsEl}
-    </tr>
-    `;
+   return options.map((el) => 
+         `<th>${el}</th>`
+    ).join('')
 }
 
 
@@ -63,27 +21,17 @@ function EvaluationTableRow(options={}){
 <tr>
     <td>${options.name}</td>
     <td>${options.technology}</td>
-    <td>${options.level} 2</td>
+    <td>${options.level} </td>
     <td>Detalii <button></button></td>
 </tr>
     `
 }
 
 function EvaluationTableBody(options = {}) {
-
-const rowsElements = [];
-
-options.items.forEach(function(rowObj){
-    const generatedRow = EvaluationTableRow(rowObj);
-    rowsElements.push(generatedRow);
-});
-
-const rowsEl = rowsElements.join('');
-return `
-<tbody>
-    ${rowsEl};
-</tbody>
-`
+return options.map((k) => 
+`<tbody>
+${EvaluationTableRow(k)}
+</tbody>`).join('');
 }
 
 
@@ -96,18 +44,8 @@ function EvaluationsTable(options = {}) {
         <col style="width:30%">
         <col style="width:10%">
     </colgroup>
-        ${EvaluationsTableHeader({
-         headings: ['Nume','Tehnologie','Nivel']
-        })};
-            ${EvaluationTableBody({
-            items: options.items
-        })}
+        ${EvaluationsTableHeader(options.headings)}
+        ${EvaluationTableBody(options.rows)}
 </table>
     `
-}
-
-window.onload = function () {
-    const appEl = document.querySelector("#app");
-    appEl.innerHTML = EvaluationsPage()
-
 }
