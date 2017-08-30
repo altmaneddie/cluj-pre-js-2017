@@ -1,14 +1,15 @@
 function addEventstoNewEval(){
     const evalBtn = document.getElementById('evaluationBtn');
     const logoutBtn = document.getElementById('logoutBtn');
+    const container = document.getElementById('app');
     evalBtn.addEventListener("click",function(e){
         event.preventDefault();
-        theBody.innerHTML = EvaluationsPage();
+        container.innerHTML = EvaluationsPage();
         addEventstoEval();
     })
     logoutBtn.addEventListener("click",function(e){
         event.preventDefault();
-        theBody.innerHTML = LoginPage();
+        container.innerHTML = LoginPage();
         addEventstoLogin();
     })
 }   

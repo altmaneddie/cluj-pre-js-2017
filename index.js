@@ -1,6 +1,7 @@
 // default on load
 window.addEventListener("load", function() {
-    theBody.innerHTML = LoginPage();
+    const container = document.getElementById('app');
+    container.innerHTML = LoginPage();
     addEventstoLogin();
 })
 
