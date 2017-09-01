@@ -66,7 +66,7 @@ function TechnicalLevelPicker(options = {}) {
 // Textarea creation functions
 
 function TextareaCreator(options) {
-    return options.textarea.map(function (k) {
+    return options.textarea.map(function (k){
         return `<h3>${k.label}</h3>
         <textarea class="textA" rows="5" cols="80" placeholder="${k.placeholder}"></textarea>
         `}).join('')
