@@ -4,12 +4,14 @@ function NewEvaluationForm(options = {}) {
     const technicalObj = getTechnicalData();
     const textareaObj = getTextareaData();
     const fieldsetObj = getFieldsetData();
+
     return `
     ${Nav()}
     ${CandidateDetailsForm()}
     ${TechnicalLevelPicker(technicalObj)}
     ${Textarea(textareaObj)}
     ${Fieldset(fieldsetObj)}
+
     <input type="submit" id="submitBtn" value="Submit">
     </form>
     ${Footer()}
@@ -36,14 +38,14 @@ function TechnicalLevelHeaderCreator(options) {
 
 function TechnicalLevelOptCreator(options) {
 
-   return options.columnData.map((k) =>
-     `<td>
+    return options.columnData.map((k) =>
+        `<td>
         ${TechnicalLevelRowCreator(k.inputLevels)}
        </td> `
     ).join('')
 }
 
-function TechnicalLevelRowCreator(options){
+function TechnicalLevelRowCreator(options) {
     return options.map((m) => `
     <input type="radio" class="radio-test" name="level" value="${m}">
     `).join('')
@@ -66,7 +68,7 @@ function TechnicalLevelPicker(options = {}) {
 // Textarea creation functions
 
 function TextareaCreator(options) {
-    return options.textarea.map(function (k){
+    return options.textarea.map(function (k) {
         return `<h3>${k.label}</h3>
         <textarea class="textA" rows="5" cols="80" placeholder="${k.placeholder}"></textarea>
         `}).join('')
@@ -82,8 +84,8 @@ function Textarea(options = {}) {
 // Fieldset creation functions
 
 function Fieldset(options) {
-  return  options.fieldset.map((k) =>
-    `
+    return options.fieldset.map((k) =>
+        `
     <legend class="eval-forms-title">${k.legend}</legend>
     <ul class="eval-forms">
     ${FieldsetLiCreator(k)}
@@ -94,7 +96,7 @@ function Fieldset(options) {
 
 function FieldsetLiCreator(options) {
     return options.ul.map((m) =>
-    `
+        `
     <li>${m.label}</li>
     <li>
         <select name="${m.label} To use string.replace">
@@ -112,21 +114,23 @@ function FieldsetOptionsCreator(options) {
 }
 
 
-//create the "Evaluation" option
+// create the "Evaluation" option
+function addPlaceHolder() {
+    const fieldsetParentOfOption = document.getElementsByTagName('SELECT');
+console.log(fieldsetParentOfOption);
+    const fieldsetEvalNode = function () {
+        return
+        `
+    <option selected disabled hidden>Evaluation</option>
+    `}
 
-// const fieldsetParentOfOption = document.getElementsByTagName('SELECT');
-// const fieldsetEvalNode = function(){
-//     return 
-//     `
-//     <option selected disabled hidden>Evaluation</option>
-//     `}
-
-// function fieldsetEvalOptAdder(parents){
-//  console.log([parents]);
-//     // parents.map(function(sel){
-//     //     sel.insertBefore(fieldsetEvalNode,sel.firstChild);
-//     // })
-// }
+    function fieldsetEvalOptAdder(parents) {
+        parents.forEach(function (parent) {
+            parent.insertBefore(fieldsetEvalNode, parent.firstChild);
+        })
+    }
+    fieldsetEvalOptAdder(fieldsetParentOfOption);
+}
 
 
 

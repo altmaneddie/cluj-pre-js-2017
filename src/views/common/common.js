@@ -10,7 +10,7 @@ function Nav(options= {}){
   };
   
 
-const Footer = function(){
+function Footer(){
     return `
 <footer>
     Copyright@Softvision 2017
