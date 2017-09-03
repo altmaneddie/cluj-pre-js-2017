@@ -12,14 +12,14 @@ function EvaluationsPage(options = {}) {
 
 
 function EvaluationsTableHeader(options) {
-   return options.map((el) => 
-         `<th>${el}</th>`
+    return options.map((el) =>
+        `<th>${el}</th>`
     ).join('')
 }
 
 
-function EvaluationTableRow(options={}){
-   return options.map((k) =>`
+function EvaluationTableRow(options = {}) {
+    return options.map((k) => `
 <tr>
     <td>${k.candidate[0].value}</td>
     <td>Javascript</td>
@@ -30,13 +30,21 @@ function EvaluationTableRow(options={}){
 }
 
 function EvaluationTableBody(options = {}) {
-return`<tbody>
+    if (options === null) {
+        return `
+        <tr>
+        <td>No Data recorded yet</td>
+        </tr>
+        `
+    } else {
+        return `<tbody>
 ${EvaluationTableRow(options)}
 </tbody>`
+    }
 }
 
 
-function EvaluationsTable(tableHeaders={}, tableData = {}) {
+function EvaluationsTable(tableHeaders = {}, tableData = {}) {
     return `
 <table align="center">
     <colgroup>

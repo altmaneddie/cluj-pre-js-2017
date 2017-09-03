@@ -16,5 +16,7 @@ function addEventstoNewEval(){
     submitBtn.addEventListener("click", function(e){
         e.preventDefault();
         getSubmitedData();
+        container.innerHTML = EvaluationsPage()
+        addEventstoEval()
     })
 }   
