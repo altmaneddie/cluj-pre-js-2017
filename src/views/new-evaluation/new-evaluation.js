@@ -118,14 +118,12 @@ const addPlaceHolder = function () {
 
     function fieldsetEvalOptAdder(parents) {
         parents.forEach(function (parent) {
-            const fieldsetEvalNode = document.createElement("option");
+            const fieldsetEvalNode = document.createElement("OPTION");
             parent.insertBefore(fieldsetEvalNode, parent.firstChild);
         })
         fieldsetEvalOptAdder(fieldsetParentOfOption);
     }
+    fieldsetParentOfOption.forEach(function (el) {
+        el.firstChild.setAttribute("hidden", "TRUE");
+    })
 }
-
-
-
-
-
