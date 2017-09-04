@@ -112,19 +112,19 @@ function FieldsetOptionsCreator(options) {
         `).join('')
 }
 // create the "Evaluation" option
-// const addPlaceHolder= function() {
+const addPlaceHolder = function () {
 
-//     const fieldsetParentOfOption = document.querySelectorAll('SELECT');
+    const fieldsetParentOfOption = document.querySelectorAll('SELECT');
 
+    function fieldsetEvalOptAdder(parents) {
+        parents.forEach(function (parent) {
+            const fieldsetEvalNode = document.createElement("option");
+            parent.insertBefore(fieldsetEvalNode, parent.firstChild);
+        })
+        fieldsetEvalOptAdder(fieldsetParentOfOption);
+    }
+}
 
-//     function fieldsetEvalOptAdder(parents) {
-//         parents.forEach(function (parent) {
-//             const fieldsetEvalNode = document.createElement("option", { className = "hidden" });
-//             parent.insertBefore(fieldsetEvalNode, parent.firstChild);
-//         })
-//     }
-//     fieldsetEvalOptAdder(fieldsetParentOfOption);
-// }
 
 
 

@@ -1,4 +1,4 @@
-function addEventstoNewEval() {
+function addEventsToNewEval() {
     const evalBtn = document.getElementById('evaluationBtn');
     const logoutBtn = document.getElementById('logoutBtn');
     const container = document.getElementById('app');
@@ -12,7 +12,7 @@ function addEventstoNewEval() {
     logoutBtn.addEventListener("click", function (e) {
         event.preventDefault();
         container.innerHTML = LoginPage();
-        addEventstoLogin();
+        addEventsToLogin();
     })
     submitBtn.addEventListener("click", function (e) {
         e.preventDefault();
