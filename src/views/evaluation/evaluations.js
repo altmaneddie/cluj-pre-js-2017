@@ -57,7 +57,3 @@ function EvaluationsTable(tableHeaders = {}, tableData = {}) {
 </table>
     `
 }
-
-let tempData = localStorage.getItem("Evaluations");
-const tableData = JSON.parse(tempData);
-console.log(tableData);

@@ -7,7 +7,7 @@ function addEventstoNewEval() {
     evalBtn.addEventListener("click", function (e) {
         event.preventDefault();
         container.innerHTML = EvaluationsPage();
-        addEventstoEval();
+        addEventsToEval();
     })
     logoutBtn.addEventListener("click", function (e) {
         event.preventDefault();
@@ -16,8 +16,8 @@ function addEventstoNewEval() {
     })
     submitBtn.addEventListener("click", function (e) {
         e.preventDefault();
-        getSubmitedData();
+        getSubmittedData();
         container.innerHTML = EvaluationsPage()
-        addEventstoEval()
+        addEventsToEval()
     })
 }   

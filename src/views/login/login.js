@@ -1,40 +1,38 @@
 function LoginPage() {
 
-return `
+    return `
 ${LoginContainer()}
 ${SubmitFeedbackSection()}
 ${SubmitFeedbackResults()}
 ${Footer()}
 `
-}
-
-function LoginContainer(){
-    return`<section class="feedback grid">
+    function LoginContainer() {
+        return `<section class="feedback grid">
     ${LoginHeader()}
     ${LoginForm()}
     <div class="clearfix"></div>
     </sections>
     `
-}
+    }
 
-function LoginForm(){
-    return `
+    function LoginForm() {
+        return `
     <form class="login-form" method="POST">
         <input type="text" name="userName" placeholder="User Name"> 
         <input type="password" name="pw" placeholder="Password">
         <input type="submit" id="submit-btn" name="login" value="Login">
     </form>
     `
-}
+    }
 
-function LoginHeader(){
-    return `
+    function LoginHeader() {
+        return `
     <p>Interview Feedback</p>
     `
-}
+    }
 
-function SubmitFeedbackSection(){
-    return `
+    function SubmitFeedbackSection() {
+        return `
     <section class="feedback grid">
     <img src="assets/images/new feedback.jpg" class="floatLeft floatLeft-img">
     <h1 class="floatLeft floatLeft-h1">Submit new feedback</h1>
@@ -48,10 +46,10 @@ function SubmitFeedbackSection(){
     <div class="clearfix"></div>
 </sections>
     `
-}
+    }
 
-function SubmitFeedbackResults(){
-    return `
+    function SubmitFeedbackResults() {
+        return `
     <section class="feedback grid">
     <img src="assets/images/results.jpg" class="floatRight floatRight-img">
     <h1 class="floatRight floatRight-h1">View feedback results</h1>
@@ -65,4 +63,5 @@ function SubmitFeedbackResults(){
     <div class="clearfix"></div>
 </section>
     `
+    }
 }

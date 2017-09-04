@@ -4,6 +4,6 @@ function addEventstoLogin(){
     submitBtn.addEventListener("click",function(e){
     e.preventDefault();
     container.innerHTML = EvaluationsPage();
-    addEventstoEval();
+    addEventsToEval();
     })
 }

@@ -1,4 +1,4 @@
-function getSubmitedData() {
+function getSubmittedData() {
 
     const inputsNewForm = document.querySelectorAll('.candidateDetails');
     const textAreas = document.querySelectorAll('textarea');

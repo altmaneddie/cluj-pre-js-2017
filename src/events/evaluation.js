@@ -1,4 +1,4 @@
-function addEventstoEval(){
+function addEventsToEval(){
     const newEvalBtn = document.getElementById('newEvaluationBtn');
     const logoutBtn = document.getElementById('logoutBtn');
     const container = document.getElementById('app');
@@ -17,3 +17,18 @@ function addEventstoEval(){
     })
 }
 
+const addPlaceHolder= function() {
+    
+        const fieldsetParentOfOption = document.querySelectorAll('SELECT');
+    
+    
+        function fieldsetEvalOptAdder(parents) {
+            parents.forEach(function (parent) {
+                const fieldsetEvalNode = document.createElement("option", { className = "hidden" });
+                parent.insertBefore(fieldsetEvalNode, parent.firstChild);
+            })
+        }
+        fieldsetEvalOptAdder(fieldsetParentOfOption);
+    }
+    
+    

@@ -17,7 +17,6 @@ function NewEvaluationForm(options = {}) {
     ${Footer()}
     `
 }
-
 // Candidate details function STATIC
 function CandidateDetailsForm(options = {}) {
     return `
@@ -112,22 +111,20 @@ function FieldsetOptionsCreator(options) {
         <option  value="${n}">${n}</option>
         `).join('')
 }
-
-
 // create the "Evaluation" option
+// const addPlaceHolder= function() {
 
-function addPlaceHolder() {
+//     const fieldsetParentOfOption = document.querySelectorAll('SELECT');
 
-    const fieldsetParentOfOption = document.querySelectorAll('SELECT');
-    const fieldsetEvalNode = document.createElement("option", "hidden disabled");
 
-    function fieldsetEvalOptAdder(parents) {
-        parents.forEach(function (parent) {
-            parent.insertBefore(fieldsetEvalNode, parent.firstChild);
-        })
-    }
-    fieldsetEvalOptAdder(fieldsetParentOfOption);
-}
+//     function fieldsetEvalOptAdder(parents) {
+//         parents.forEach(function (parent) {
+//             const fieldsetEvalNode = document.createElement("option", { className = "hidden" });
+//             parent.insertBefore(fieldsetEvalNode, parent.firstChild);
+//         })
+//     }
+//     fieldsetEvalOptAdder(fieldsetParentOfOption);
+// }
 
 
 
