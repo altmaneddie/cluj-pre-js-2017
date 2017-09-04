@@ -7,11 +7,13 @@ function addEventstoEval(){
         e.preventDefault();
         container.innerHTML = NewEvaluationForm();
         addEventstoNewEval();
+        addPlaceHolder();
     })
     logoutBtn.addEventListener("click",function(e){
         e.preventDefault();
         container.innerHTML = LoginPage();
         addEventstoLogin();
+        
     })
 }
 

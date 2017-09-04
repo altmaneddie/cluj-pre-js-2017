@@ -43,7 +43,6 @@ ${EvaluationTableRow(options)}
     }
 }
 
-
 function EvaluationsTable(tableHeaders = {}, tableData = {}) {
     return `
 <table align="center">

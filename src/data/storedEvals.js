@@ -1,6 +1,6 @@
 function getSubmitedData() {
 
-    const inputsNewForm = document.querySelectorAll('.cosmin-test');
+    const inputsNewForm = document.querySelectorAll('.candidateDetails');
     const textAreas = document.querySelectorAll('textarea');
     const radioValues = document.querySelectorAll('.radio-test');
     const selectInputs = document.querySelectorAll('select');

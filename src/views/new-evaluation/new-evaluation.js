@@ -23,8 +23,8 @@ function CandidateDetailsForm(options = {}) {
     return `
         <form class="main-form">
         <div class="data-form">
-            <input type="text" class="cosmin-test" placeholder="Candidate" name="Candidate">
-            <input type="text" class="cosmin-test" placeholder="Interviewer" name="Interviewer">
+            <input type="text" class="candidateDetails" placeholder="Candidate" name="Candidate">
+            <input type="text" class="candidateDetails" placeholder="Interviewer" name="Interviewer">
             <input type="date">
         </div>
      `
@@ -86,8 +86,8 @@ function Textarea(options = {}) {
 function Fieldset(options) {
     return options.fieldset.map((k) =>
         `
-    <legend class="eval-forms-title">${k.legend}</legend>
-    <ul class="eval-forms">
+    <legend class="evalForms-title">${k.legend}</legend>
+    <ul class="evalForms">
     ${FieldsetLiCreator(k)}
     </ul>
     `).join('')
@@ -115,14 +115,11 @@ function FieldsetOptionsCreator(options) {
 
 
 // create the "Evaluation" option
+
 function addPlaceHolder() {
-    const fieldsetParentOfOption = document.getElementsByTagName('SELECT');
-console.log(fieldsetParentOfOption);
-    const fieldsetEvalNode = function () {
-        return
-        `
-    <option selected disabled hidden>Evaluation</option>
-    `}
+
+    const fieldsetParentOfOption = document.querySelectorAll('SELECT');
+    const fieldsetEvalNode = document.createElement("option", "hidden disabled");
 
     function fieldsetEvalOptAdder(parents) {
         parents.forEach(function (parent) {
