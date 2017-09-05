@@ -116,14 +116,22 @@ const addPlaceHolder = function () {
 
     const fieldsetParentOfOption = document.querySelectorAll('SELECT');
 
-    function fieldsetEvalOptAdder(parents) {
-        parents.forEach(function (parent) {
-            const fieldsetEvalNode = document.createElement("OPTION");
-            parent.insertBefore(fieldsetEvalNode, parent.firstChild);
-        })
-        fieldsetEvalOptAdder(fieldsetParentOfOption);
-    }
-    fieldsetParentOfOption.forEach(function (el) {
-        el.firstChild.setAttribute("hidden", "TRUE");
+
+    fieldsetParentOfOption.forEach(function (selectOpt) {
+        const fieldsetEvalNode = document.createElement("OPTION");
+
+        selectOpt.insertBefore(fieldsetEvalNode, selectOpt.firstChild);
+    })
+    hidePlaceHolder(fieldsetParentOfOption);
+}
+
+const hidePlaceHolder = function (el) {
+   
+    el.forEach(function (k) {
+        console.log(k);
+        z = k.firstChild
+        console.log(z);
+        z.setAttribute("hidden", "TRUE");
+        z.innerHTML = "Evaluate";
     })
 }
