@@ -112,16 +112,35 @@ const detailsCreator = function (el) {
         const tempData = localStorage.getItem("Evaluations");
         const tableData = JSON.parse(tempData);
         //DISPLAY PART
-//li creator for div
-function divLiCreator(options={}){
-    options.map
-}
-function
-        return `
+        //li dropdown creator for div
+        function divDropDownLiCreator(options = {}) {
+            return options.map((k) => {
+                return `
+                <li>
+                ${k.name}:${options.value}
+                </li>
+                `
+            }).join("")
+        }
+        //li Textarea creator for div
+        function divTextAreaCreator(options = {}) {
+            return options.map((l, m) => {
+                return `
+            <li>
+            Box number${m}: ${l.value}
+            </li>
+            `
+            }).join("")
+        }
+        //create the ul to contain all data
+        function divUlCreator(options) {
+            return `
         <ul>
-        
+        Notes:
+        Grades: ${divRadioLiCreator}
         </ul>
         `
+        }
 
     }
 }
