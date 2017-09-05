@@ -1,5 +1,5 @@
 function EvaluationsPage(options = {}) {
-    let tempData = localStorage.getItem("Evaluations");
+    const tempData = localStorage.getItem("Evaluations");
     const tableData = JSON.parse(tempData);
     const tableHeaders = getTableHeaders();
 
@@ -59,10 +59,69 @@ function EvaluationsTable(tableHeaders = {}, tableData = {}) {
 }
 
 
-const detailsCreator = function(){
+const detailsCreator = function (el) {
+    //search for dispalyed divs.
+    alreadyDisplayedDiv = document.getElementsByClassName("displayedDetailDiv");
 
-    if 
+    if (alreadyDisplayedDiv !== null) {
+        //kill already displayed div
+        let xParent = alreadyDisplayedDiv.parentNode;
+        xParent.removeChild(alreadyDisplayedDiv);
+        //create new div
+        divCreator(el);
+        //add events to new div
+        divAddEvent(el);
+    } else {
+        //create new div
+        divCreator(el);
+        //add events to new div
+        divAddEvent(el);
+    }
+    //div creation function
+    function divCreator(elem) {
+        //Div creation
+        let detailDiv = document.createElement("div");
+        detailDiv.setAttribute("class", "displayedDetailDiv");
+        //Get parent
+        const trParent = elem.parentNode.parentNode.parentNode; //doubt it works
+        //Apend 
+        trParent.appendChild(detailDiv);
+    }
+    //add events to new div
+    function divAddEvent(elem) {
+        //change display
+        elem.className = "minusBtn";
+        //add events to minus button
+        elem.addEventListner("click", function () {
+            const divSibling = elem.parentNode.nextSibling;
+            divSibling.parentNode.removeChild(divSibling);
+        })
+    }
+    //find the correct data and populate the apropiate div
+    function divInnerHtml(elem) {
+        //find it's index
+        function findIndex() {
+            var i = 0;
+            while ((child = child.previousSibling) != null) {
+                i++;
+            }
+            return i;
+        }
+        //get to localStorage
+        const myIndex = findIndex(elem);
+        const tempData = localStorage.getItem("Evaluations");
+        const tableData = JSON.parse(tempData);
+        //DISPLAY PART
+//li creator for div
+function divLiCreator(options={}){
+    options.map
+}
+function
+        return `
+        <ul>
+        
+        </ul>
+        `
 
-    let detailDiv = document.createElement("div");
-    function detailsTableCreator = 
+    }
 }
