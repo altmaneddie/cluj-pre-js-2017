@@ -132,7 +132,7 @@ const detailsCreator = function (el) {
             `
             }).join("")
         }
-        //create the ul to contain all data
+        //create the ul to contain detailed grades and opinion on candidate
         function divUlCreator(options) {
             return `
         <ul>
