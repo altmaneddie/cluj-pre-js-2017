@@ -126,12 +126,13 @@ const addPlaceHolder = function () {
 }
 
 const hidePlaceHolder = function (el) {
-   
+
     el.forEach(function (k) {
-        console.log(k);
+
         z = k.firstChild
-        console.log(z);
+
         z.setAttribute("hidden", "TRUE");
+        z.setAttribute("selected", "TRUE");
         z.innerHTML = "Evaluate";
     })
 }

@@ -24,7 +24,7 @@ function EvaluationTableRow(options = {}) {
     <td>${k.candidate[0].value}</td>
     <td>Javascript</td>
     <td>${k.radio[0].value} </td>
-    <td>Detalii <button></button></td>
+    <td>Detalii<button class="detailsBtn"></button></td>
 </tr>
     `).join('')
 }
@@ -56,4 +56,13 @@ function EvaluationsTable(tableHeaders = {}, tableData = {}) {
         ${EvaluationTableBody(tableData)}
 </table>
     `
+}
+
+
+const detailsCreator = function(){
+
+    if 
+
+    let detailDiv = document.createElement("div");
+    function detailsTableCreator = 
 }

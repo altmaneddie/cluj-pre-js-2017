@@ -2,6 +2,7 @@ function addEventsToEval() {
     const newEvalBtn = document.getElementById('newEvaluationBtn');
     const logoutBtn = document.getElementById('logoutBtn');
     const container = document.getElementById('app');
+    const detailsBtn = document.getElementsByClassName("detailsBtn");
 
     newEvalBtn.addEventListener("click", function (e) {
         e.preventDefault();
@@ -9,12 +10,20 @@ function addEventsToEval() {
         addEventsToNewEval();
         addPlaceHolder();
     })
+
     logoutBtn.addEventListener("click", function (e) {
         e.preventDefault();
         container.innerHTML = LoginPage();
         addEventstoLogin();
-
     })
+
+    detailsBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.currentTarget
+        detailsCreator();
+    })
+
+
 }
 
 // // const addPlaceHolder = function () {
@@ -29,6 +38,6 @@ function addEventsToEval() {
 //         })
 //         fieldsetEvalOptAdder(fieldsetParentOfOption);
 //     }
-    
+
 
 
