@@ -2,7 +2,7 @@ function addEventsToEval() {
     const newEvalBtn = document.getElementById('newEvaluationBtn');
     const logoutBtn = document.getElementById('logoutBtn');
     const container = document.getElementById('app');
-    const detailsBtn = document.getElementsByClassName("detailsBtn");
+    const detailsBtn = document.querySelectorAll(".detailsBtn");
 
     newEvalBtn.addEventListener("click", function (e) {
         e.preventDefault();
@@ -17,11 +17,10 @@ function addEventsToEval() {
         addEventstoLogin();
     })
 
-    detailsBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        detailsCreator(e.currentTarget);
+    detailsBtn.forEach(function (e) {
+        addEventListener("click", function (e) {
+            detailsCreator(e);
+        })
     })
-
-
 }
 

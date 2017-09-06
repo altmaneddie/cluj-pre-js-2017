@@ -19,8 +19,8 @@ function EvaluationsTableHeader(options) {
 
 
 function EvaluationTableRow(options = {}) {
-    return options.map((k) => `
-<tr>
+    return options.map((k, i) => `
+<tr id="${i + 1}">
     <td>${k.candidate[0].value}</td>
     <td>Javascript</td>
     <td>${k.radio[0].value} </td>
@@ -60,87 +60,76 @@ function EvaluationsTable(tableHeaders = {}, tableData = {}) {
 
 
 const detailsCreator = function (el) {
-    //search for dispalyed divs.
-    alreadyDisplayedDiv = document.getElementsByClassName("displayedDetailDiv");
+    //search for displayed divs.
+    alreadyDisplayedDiv = document.querySelectorAll(".displayedDetailDiv");
 
-    if (alreadyDisplayedDiv !== null) {
+    if (alreadyDisplayedDiv.length !== 0) {
         //kill already displayed div
-        let xParent = alreadyDisplayedDiv.parentNode;
-        xParent.removeChild(alreadyDisplayedDiv);
-        //create new div
-        divCreator(el);
-        //add events to new div
-        divAddEvent(el);
-    } else {
-        //create new div
-        divCreator(el);
-        //add events to new div
-        divAddEvent(el);
+        let childToBeRemoved = alreadyDisplayedDiv[0];
+        divSlayer(childToBeRemoved);
     }
+
+    //check if the button is + or -
+    if (el.className === "detailsBtn") {
+        divCreator(el);
+        el.className = "minusBtn";
+    } else {
+        divSlayer(el);
+        el.className = "detailsBtn"
+    }
+
     //div creation function
-    function divCreator(elem) {
+    function divCreator(el) {
         //Div creation
         let detailDiv = document.createElement("div");
         detailDiv.setAttribute("class", "displayedDetailDiv");
         //Get parent
-        const trParent = elem.parentNode.parentNode.parentNode; //doubt it works
+        const trParent = el.parentNode.parentNode
         //Apend 
         trParent.appendChild(detailDiv);
     }
-    //add events to new div
-    function divAddEvent(elem) {
-        //change display
-        elem.className = "minusBtn";
-        //add events to minus button
-        elem.addEventListner("click", function () {
-            const divSibling = elem.parentNode.nextSibling;
-            divSibling.parentNode.removeChild(divSibling);
-        })
+
+    //div destroyer function
+    function divSlayer(el) {
+        //slay it!
+        let xParent = el.parentNode;
+        xParent.removeChild(el);
     }
-    //find the correct data and populate the apropiate div
-    function divInnerHtml(elem) {
-        //find it's index
-        function findIndex() {
-            var i = 0;
-            while ((child = child.previousSibling) != null) {
-                i++;
-            }
-            return i;
-        }
-        //get to localStorage
-        const myIndex = findIndex(elem);
-        const tempData = localStorage.getItem("Evaluations");
-        const tableData = JSON.parse(tempData);
-        //DISPLAY PART
-        //li dropdown creator for div
-        function divDropDownLiCreator(options = {}) {
-            return options.map((k) => {
-                return `
+
+    //get to localStorage
+    const myIndex = el.id;
+    const tempData = localStorage.getItem("Evaluations");
+    const tableData = JSON.parse(tempData);
+    //DISPLAY PART
+    //li dropdown creator for div
+    function divDropDownLiCreator(options = {}) {
+        return options.map((k) => {
+            return `
                 <li>
                 ${k.name}:${options.value}
                 </li>
                 `
-            }).join("")
-        }
-        //li Textarea creator for div
-        function divTextAreaCreator(options = {}) {
-            return options.map((l, m) => {
-                return `
+        }).join("")
+    }
+    //li Textarea creator for div
+    function divTextAreaCreator(options = {}) {
+        return options.map((l, m) => {
+            return `
             <li>
             Box number${m}: ${l.value}
             </li>
             `
-            }).join("")
-        }
-        //create the ul to contain detailed grades and opinion on candidate
-        function divUlCreator(options) {
-            return `
+        }).join("")
+    }
+    //create the ul to contain detailed grades and opinion on candidate
+    function divUlCreator(options) {
+        return `
         <ul>
         Notes:
         Grades: ${divRadioLiCreator}
         </ul>
         `
-        }
-
     }
+
 }
+
