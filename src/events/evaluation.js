@@ -17,9 +17,9 @@ function addEventsToEval() {
         addEventstoLogin();
     })
 
-    detailsBtn.forEach(function (e) {
+    detailsBtn.forEach(function (elem) {
         addEventListener("click", function (e) {
-            detailsCreator(e);
+            detailsCreator(elem);
         })
     })
 }
