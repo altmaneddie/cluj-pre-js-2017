@@ -1,6 +1,6 @@
 
 //page creator
-function NewEvaluationForm(options = {}) {
+interviewApp.NewEvaluationForm = function (options = {}) {
     const technicalObj = getTechnicalData();
     const textareaObj = getTextareaData();
     const fieldsetObj = getFieldsetData();
@@ -18,7 +18,7 @@ function NewEvaluationForm(options = {}) {
     `
 }
 // Candidate details function STATIC
-function CandidateDetailsForm(options = {}) {
+interviewApp.CandidateDetailsForm = function (options = {}) {
     return `
         <form class="main-form">
         <div class="data-form">
@@ -31,34 +31,34 @@ function CandidateDetailsForm(options = {}) {
 
 // Technical Level creation functions
 
-function TechnicalLevelHeaderCreator(options) {
+interviewApp.TechnicalLevelHeaderCreator = function (options) {
     return `<th>${options.headings.join('</th><th>')}</th>`
 };
 
-function TechnicalLevelOptCreator(options) {
+interviewApp.TechnicalLevelOptCreator = function (options) {
 
     return options.columnData.map((k) =>
         `<td>
-        ${TechnicalLevelRowCreator(k.inputLevels)}
+        ${interviewApp.TechnicalLevelRowCreator(k.inputLevels)}
        </td> `
     ).join('')
 }
 
-function TechnicalLevelRowCreator(options) {
+interviewApp.TechnicalLevelRowCreator = function (options) {
     return options.map((m) => `
     <input type="radio" class="radio-test" name="level" value="${m}">
     `).join('')
 }
 
 
-function TechnicalLevelPicker(options = {}) {
+interviewApp.TechnicalLevelPicker = function (options = {}) {
     return `
     <table class="table">
     <tr class="row1">
-        ${TechnicalLevelHeaderCreator(options)}
+        ${interviewApp.TechnicalLevelHeaderCreator(options)}
     </tr>
     <tr class="row2">
-        ${TechnicalLevelOptCreator(options)}
+        ${interviewApp.TechnicalLevelOptCreator(options)}
     </tr>
     </table>
     `
@@ -66,53 +66,53 @@ function TechnicalLevelPicker(options = {}) {
 
 // Textarea creation functions
 
-function TextareaCreator(options) {
+interviewApp.TextareaCreator = function (options) {
     return options.textarea.map(function (k) {
         return `<h3>${k.label}</h3>
         <textarea class="textA" rows="5" cols="80" placeholder="${k.placeholder}"></textarea>
         `}).join('')
 }
 
-function Textarea(options = {}) {
+interviewApp.Textarea = function (options = {}) {
     return `
     <div class="impression">
-    ${TextareaCreator(options)}
+    ${interviewApp.TextareaCreator(options)}
     </div>
     `
 }
 // Fieldset creation functions
 
-function Fieldset(options) {
+interviewApp.Fieldset = function (options) {
     return options.fieldset.map((k) =>
         `
     <legend class="evalForms-title">${k.legend}</legend>
     <ul class="evalForms">
-    ${FieldsetLiCreator(k)}
+    ${interviewApp.FieldsetLiCreator(k)}
     </ul>
     `).join('')
 }
 
 
-function FieldsetLiCreator(options) {
+interviewApp.FieldsetLiCreator = function (options) {
     return options.ul.map((m) =>
         `
     <li>${m.label}</li>
     <li>
         <select name="${m.label} To use string.replace">
-        ${FieldsetOptionsCreator(m)}
+        ${interviewApp.FieldsetOptionsCreator(m)}
         </select>
         </li>
 `).join('')
 }
 
-function FieldsetOptionsCreator(options) {
+interviewApp.FieldsetOptionsCreator = function (options) {
     return options.options.map((n) =>
         `
         <option  value="${n}">${n}</option>
         `).join('')
 }
 // create the "Evaluation" option
-const addPlaceHolder = function () {
+interviewApp.addPlaceHolder = function () {
 
     const fieldsetParentOfOption = document.querySelectorAll('SELECT');
 
@@ -125,7 +125,7 @@ const addPlaceHolder = function () {
     hidePlaceHolder(fieldsetParentOfOption);
 }
 
-const hidePlaceHolder = function (el) {
+interviewApp.hidePlaceHolder = function (el) {
 
     el.forEach(function (k) {
 

@@ -1,4 +1,4 @@
-function getSubmittedData() {
+interviewApp.getSubmittedData = function () {
 
     const inputsNewForm = document.querySelectorAll('.candidateDetails');
     const textAreas = document.querySelectorAll('textarea');
@@ -53,11 +53,10 @@ function getSubmittedData() {
         let arr = [];
         arr.push(savedObject);
         localStorage.setItem(`Evaluations`, JSON.stringify(arr));
-  }else{
+    } else {
         let arr = JSON.parse(currentObj);
         arr.push(savedObject);
         localStorage.setItem(`Evaluations`, JSON.stringify(arr));
-        console.log(arr);
     }
 }
 

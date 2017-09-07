@@ -6,22 +6,22 @@ function addEventsToEval() {
 
     newEvalBtn.addEventListener("click", function (e) {
         e.preventDefault();
-        container.innerHTML = NewEvaluationForm();
-        addEventsToNewEval();
-        addPlaceHolder();
+        container.innerHTML = interviewApp.NewEvaluationForm();
+        interviewApp.addEventsToNewEval();
+        interviewApp.addPlaceHolder();
     })
 
     logoutBtn.addEventListener("click", function (e) {
         e.preventDefault();
-        container.innerHTML = LoginPage();
-        addEventstoLogin();
+        container.innerHTML = interviewApp.LoginPage();
+        interviewApp.addEventsToLogin();
     })
 
     detailsBtn.forEach(function (el) {
         el.addEventListener("click", function () {
             // let el = e.target;
             // e.stopPropagation;
-            detailsCreator(el);
+            interviewApp.detailsCreator(el);
         })
     })
 }

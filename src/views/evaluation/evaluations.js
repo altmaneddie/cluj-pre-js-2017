@@ -1,4 +1,4 @@
-function EvaluationsPage(options = {}) {
+interviewApp.EvaluationsPage = function (options = {}) {
     const tempData = localStorage.getItem("Evaluations");
     const tableData = JSON.parse(tempData);
     const tableHeaders = getTableHeaders();
@@ -10,15 +10,14 @@ function EvaluationsPage(options = {}) {
    `
 }
 
-
-function EvaluationsTableHeader(options) {
+interviewApp.EvaluationsTableHeader = function (options) {
     return options.map((el) =>
         `<th>${el}</th>`
     ).join('')
 }
 
 
-function EvaluationTableRow(options = {}) {
+interviewApp.EvaluationTableRow = function (options = {}) {
     return options.map((k, i) => `
 <tr id="${i + 1}">
     <td>${k.candidate[0].value}</td>
@@ -29,7 +28,7 @@ function EvaluationTableRow(options = {}) {
     `).join('')
 }
 
-function EvaluationTableBody(options = {}) {
+interviewApp.EvaluationTableBody = function (options = {}) {
     if (options === null) {
         return `
         <tr>
@@ -43,7 +42,7 @@ ${EvaluationTableRow(options)}
     }
 }
 
-function EvaluationsTable(tableHeaders = {}, tableData = {}) {
+interviewApp.EvaluationsTable = function (tableHeaders = {}, tableData = {}) {
     return `
 <table align="center">
     <colgroup>
@@ -59,7 +58,7 @@ function EvaluationsTable(tableHeaders = {}, tableData = {}) {
 }
 
 //div creation function
-function divCreator(el) {
+interviewApp.divCreator = function (el) {
     //Div creation
     let detailDiv = document.createElement("div");
     detailDiv.setAttribute("class", "displayedDetailDiv");
@@ -71,7 +70,7 @@ function divCreator(el) {
 }
 
 //div destroyer function
-function divSlayer(el) {
+interviewApp.divSlayer = function (el) {
     //slay it!
     let xParent = el.parentNode;
     xParent.removeChild(el);
@@ -80,7 +79,7 @@ function divSlayer(el) {
 
 //DISPLAY PART
 //li drop down creator for div
-function divDropDownLiCreator(options = {}) {
+interviewApp.divDropDownLiCreator = function (options = {}) {
     return options.map((k) => {
         return `
                 <li>
@@ -90,7 +89,7 @@ function divDropDownLiCreator(options = {}) {
     }).join("")
 }
 //li Textarea creator for div
-function divTextAreaCreator(options = {}) {
+interviewApp.divTextAreaCreator = function (options = {}) {
     return options.map((l, m) => {
         return `
             <li>
@@ -100,7 +99,7 @@ function divTextAreaCreator(options = {}) {
     }).join("")
 }
 //create the ul to contain detailed grades and opinion on candidate
-function divUlCreator(options) {
+interviewApp.divUlCreator = function (options) {
     return `
         <ul>
         Notes:
@@ -109,7 +108,7 @@ function divUlCreator(options) {
         `
 }
 
-const detailsCreator = function (el) {
+interviewApp.detailsCreator = function (el) {
     //search for displayed divs.
     alreadyDisplayedDiv = document.querySelectorAll(".displayedDetailDiv");
 

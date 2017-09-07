@@ -6,18 +6,18 @@ function addEventsToNewEval() {
 
     evalBtn.addEventListener("click", function (e) {
         event.preventDefault();
-        container.innerHTML = EvaluationsPage();
-        addEventsToEval();
+        container.innerHTML = interviewApp.EvaluationsPage();
+        interviewApp.addEventsToEval();
     })
     logoutBtn.addEventListener("click", function (e) {
         event.preventDefault();
-        container.innerHTML = LoginPage();
-        addEventsToLogin();
+        container.innerHTML = interviewApp.LoginPage();
+        interviewApp.addEventsToLogin();
     })
     submitBtn.addEventListener("click", function (e) {
         e.preventDefault();
-        getSubmittedData();
-        container.innerHTML = EvaluationsPage()
-        addEventsToEval()
+        interviewApp.getSubmittedData();
+        container.innerHTML = interviewApp.EvaluationsPage()
+        interviewApp.addEventsToEval()
     })
 }   

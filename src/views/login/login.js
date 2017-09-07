@@ -1,21 +1,21 @@
-function LoginPage() {
+interviewApp.LoginPage = function () {
 
     return `
-${LoginContainer()}
-${SubmitFeedbackSection()}
-${SubmitFeedbackResults()}
-${Footer()}
+${interviewApp.LoginContainer()}
+${interviewApp.SubmitFeedbackSection()}
+${interviewApp.SubmitFeedbackResults()}
+${interviewApp.Footer()}
 `
-    function LoginContainer() {
+    interviewApp.LoginContainer = function () {
         return `<section class="feedback grid">
-    ${LoginHeader()}
-    ${LoginForm()}
+    ${interviewApp.LoginHeader()}
+    ${interviewApp.LoginForm()}
     <div class="clearfix"></div>
     </sections>
     `
     }
 
-    function LoginForm() {
+    interviewApp.LoginForm = function () {
         return `
     <form class="login-form" method="POST">
         <input type="text" name="userName" placeholder="User Name"> 
@@ -25,13 +25,13 @@ ${Footer()}
     `
     }
 
-    function LoginHeader() {
+    interviewApp.LoginHeader = function () {
         return `
     <p>Interview Feedback</p>
     `
     }
 
-    function SubmitFeedbackSection() {
+    interviewApp.SubmitFeedbackSection = function () {
         return `
     <section class="feedback grid">
     <img src="assets/images/new feedback.jpg" class="floatLeft floatLeft-img">
@@ -48,7 +48,7 @@ ${Footer()}
     `
     }
 
-    function SubmitFeedbackResults() {
+    interviewApp.SubmitFeedbackResults = function () {
         return `
     <section class="feedback grid">
     <img src="assets/images/results.jpg" class="floatRight floatRight-img">

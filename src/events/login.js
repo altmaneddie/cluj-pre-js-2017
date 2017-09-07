@@ -1,10 +1,10 @@
-function addEventstoLogin() {
+interviewApp.addEventstoLogin = function () {
     const submitBtn = document.getElementById('submit-btn');
     const container = document.getElementById('app');
 
     submitBtn.addEventListener("click", function (e) {
         e.preventDefault();
-        container.innerHTML = EvaluationsPage();
-        addEventsToEval();
+        container.innerHTML = interviewApp.EvaluationsPage();
+        interviewApp.addEventsToEval();
     })
 }
