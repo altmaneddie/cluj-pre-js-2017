@@ -10,17 +10,19 @@ function NewEvaluationForm(options = {}) {
     ${TechnicalLevelPicker(technicalObj)}
     ${Textarea(textareaObj)}
     ${Fieldset(fieldsetObj)}
-    ${Footer()};
+    <input type="submit" id="submitBtn" value="Submit">
+    </form>
+    ${Footer()}
     `
 }
 
 // Candidate details function STATIC
 function CandidateDetailsForm(options = {}) {
     return `
-        <form class="main-form" method="POST" action="newEval.php">
+        <form class="main-form">
         <div class="data-form">
-            <input type="text" placeholder="Candidate" name="Candidate">
-            <input type="text" placeholder="Interviewer" name="Interviewer">
+            <input type="text" class="cosmin-test" placeholder="Candidate" name="Candidate">
+            <input type="text" class="cosmin-test" placeholder="Interviewer" name="Interviewer">
             <input type="date">
         </div>
      `
@@ -43,7 +45,7 @@ function TechnicalLevelOptCreator(options) {
 
 function TechnicalLevelRowCreator(options){
     return options.map((m) => `
-    <input type="radio" name="level" value="${m}">
+    <input type="radio" class="radio-test" name="level" value="${m}">
     `).join('')
 }
 
@@ -65,8 +67,7 @@ function TechnicalLevelPicker(options = {}) {
 
 function TextareaCreator(options) {
     return options.textarea.map(function (k) {
-        return 
-        `<h3>${k.label}</h3>
+        return `<h3>${k.label}</h3>
         <textarea class="textA" rows="5" cols="80" placeholder="${k.placeholder}"></textarea>
         `}).join('')
 }

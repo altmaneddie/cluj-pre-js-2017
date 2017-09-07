@@ -1,9 +1,9 @@
 function addEventstoLogin(){
     const submitBtn = document.getElementById('submit-btn');
+    const container = document.getElementById('app');
     submitBtn.addEventListener("click",function(e){
     e.preventDefault();
-    theBody.innerHTML ='';
-    theBody.innerHTML = EvaluationsPage();
+    container.innerHTML = EvaluationsPage();
     addEventstoEval();
     })
     
