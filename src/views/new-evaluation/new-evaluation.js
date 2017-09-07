@@ -3,13 +3,13 @@
 interviewApp.NewEvaluationForm = function (options = {}) {
     const technicalObj = getTechnicalData();
     const textareaObj = getTextareaData();
-    const fieldsetObj = getFieldsetData();
+
 
     return `
     ${Nav()}
-    ${CandidateDetailsForm()}
-    ${TechnicalLevelPicker(technicalObj)}
-    ${Textarea(textareaObj)}
+    ${interviewApp.CandidateDetailsForm()}
+    ${interviewApp.TechnicalLevelPicker(technicalObj)}
+    ${interviewApp.Textarea(textareaObj)}
     ${Fieldset(fieldsetObj)}
 
     <input type="submit" id="submitBtn" value="Submit">

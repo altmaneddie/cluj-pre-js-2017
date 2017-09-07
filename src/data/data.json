@@ -1,7 +1,5 @@
-// // Login page
-// Evaluations page
 {
-    "Eval" :{
+    "Eval": {
         "headings": [
             "Nume",
             "Technology",
@@ -9,34 +7,44 @@
             ""
         ]
     },
-    // New Evaluation page
-    "NewEval":{
-    "TechnicalData":{
-        "title": "Technical Level",
-        "headings": ["Trainee", "Junior", "Middle", "Senior"
-        ],
-        "columnData": [
-            {
-                "inputLevels": ["Trainee"
-                ]
-            },
-            {
-                "inputLevels": ["Junior1", "Junior2", "Junior3"
-                ]
-            },
-            {
-                "inputLevels": ["Middle1", "Middle2", "Middle3"
-                ]
-            },
-            {
-                "inputLevels": ["Senior1", "Senior2", "Senior3"
-                ]
-            }
-        ]
-    },
-
-
-    
+    "NewEval": {
+        "TechnicalData": {
+            "title": "Technical Level",
+            "headings": [
+                "Trainee",
+                "Junior",
+                "Middle",
+                "Senior"
+            ],
+            "columnData": [
+                {
+                    "inputLevels": [
+                        "Trainee"
+                    ]
+                },
+                {
+                    "inputLevels": [
+                        "Junior1",
+                        "Junior2",
+                        "Junior3"
+                    ]
+                },
+                {
+                    "inputLevels": [
+                        "Middle1",
+                        "Middle2",
+                        "Middle3"
+                    ]
+                },
+                {
+                    "inputLevels": [
+                        "Senior1",
+                        "Senior2",
+                        "Senior3"
+                    ]
+                }
+            ]
+        },
         "textarea": [
             {
                 "label": "Should the candidate be hired?",
@@ -51,10 +59,6 @@
                 "placeholder": "Describe the environment in which the candidate works.&#13;&#10;Describe any guidance or management experience"
             }
         ],
-    
-
-
-
         "fieldset": [
             {
                 "legend": "OOP, Design Patterns",

@@ -1,4 +1,4 @@
-function addEventsToEval() {
+interviewApp.addEventsToEval = function() {
     const newEvalBtn = document.getElementById('newEvaluationBtn');
     const logoutBtn = document.getElementById('logoutBtn');
     const container = document.getElementById('app');

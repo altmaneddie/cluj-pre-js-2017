@@ -1,12 +1,44 @@
+function getPromise(method, url) {
+    return new Promise(function (resolve, reject) {
+        const xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            if (this.readyState === 4) {
+                if (this.status < 400) {
+                    try {
+                        let response = JSON.parse(xhr.responseText);
+                        return response;
+                    } catch (e) {
+                        console.log(e);
+                    }
+                }
+            }
+        }
+        xhr.open(method, url);
+        xhr.send();
+    }
+    )
+}
+
+
+interviewApp.addEventsToLogin = function (resolve) {
+    const submitBtn = document.getElementById('submit-btn');
+    const container = document.getElementById('app');
+
+    submitBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        container.innerHTML = interviewApp.EvaluationsPage();
+        interviewApp.addEventsToEval();
+    })
+}
 interviewApp.EvaluationsPage = function (options = {}) {
     const tempData = localStorage.getItem("Evaluations");
     const tableData = JSON.parse(tempData);
-    const tableHeaders = getTableHeaders();
+
 
     return `
-    ${Nav()}
-    ${EvaluationsTable(tableHeaders, tableData)}
-    ${Footer()}
+    ${interviewApp.Nav()}
+    ${interviewApp.EvaluationsTable(options.Eval.headings, tableData)}
+    ${interviewApp.Footer()}
    `
 }
 
@@ -137,3 +169,10 @@ interviewApp.detailsCreator = function (el) {
 
 }
 
+getPromise('GET', '../../../src/data/data.json')
+    .then(function (what) {
+        console.log(what);
+    })
+    .catch(function (e) {
+        console.log(e);
+    });
