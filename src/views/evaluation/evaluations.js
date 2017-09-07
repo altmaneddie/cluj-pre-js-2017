@@ -58,6 +58,56 @@ function EvaluationsTable(tableHeaders = {}, tableData = {}) {
     `
 }
 
+//div creation function
+function divCreator(el) {
+    //Div creation
+    let detailDiv = document.createElement("div");
+    detailDiv.setAttribute("class", "displayedDetailDiv");
+    //Get parent
+    const trParent = el.parentNode.parentNode
+    //Apend 
+    trParent.appendChild(detailDiv);
+    detailDiv.innerHTML = `My DIV with Details`
+}
+
+//div destroyer function
+function divSlayer(el) {
+    //slay it!
+    let xParent = el.parentNode;
+    xParent.removeChild(el);
+    //change the class back
+}
+
+//DISPLAY PART
+//li drop down creator for div
+function divDropDownLiCreator(options = {}) {
+    return options.map((k) => {
+        return `
+                <li>
+                ${k.name}:${options.value}
+                </li>
+                `
+    }).join("")
+}
+//li Textarea creator for div
+function divTextAreaCreator(options = {}) {
+    return options.map((l, m) => {
+        return `
+            <li>
+            Box number${m}: ${l.value}
+            </li>
+            `
+    }).join("")
+}
+//create the ul to contain detailed grades and opinion on candidate
+function divUlCreator(options) {
+    return `
+        <ul>
+        Notes:
+        Grades: ${divRadioLiCreator}
+        </ul>
+        `
+}
 
 const detailsCreator = function (el) {
     //search for displayed divs.
@@ -66,7 +116,9 @@ const detailsCreator = function (el) {
     if (alreadyDisplayedDiv.length !== 0) {
         //kill already displayed div
         let childToBeRemoved = alreadyDisplayedDiv[0];
+        myBtn = childToBeRemoved.previousElementSibling.firstElementChild;
         divSlayer(childToBeRemoved);
+        myBtn.className = "detailsBtn";
     }
 
     //check if the button is + or -
@@ -78,58 +130,11 @@ const detailsCreator = function (el) {
         el.className = "detailsBtn"
     }
 
-    //div creation function
-    function divCreator(el) {
-        //Div creation
-        let detailDiv = document.createElement("div");
-        detailDiv.setAttribute("class", "displayedDetailDiv");
-        //Get parent
-        const trParent = el.parentNode.parentNode
-        //Apend 
-        trParent.appendChild(detailDiv);
-    }
-
-    //div destroyer function
-    function divSlayer(el) {
-        //slay it!
-        let xParent = el.parentNode;
-        xParent.removeChild(el);
-    }
 
     //get to localStorage
     const myIndex = el.id;
     const tempData = localStorage.getItem("Evaluations");
     const tableData = JSON.parse(tempData);
-    //DISPLAY PART
-    //li dropdown creator for div
-    function divDropDownLiCreator(options = {}) {
-        return options.map((k) => {
-            return `
-                <li>
-                ${k.name}:${options.value}
-                </li>
-                `
-        }).join("")
-    }
-    //li Textarea creator for div
-    function divTextAreaCreator(options = {}) {
-        return options.map((l, m) => {
-            return `
-            <li>
-            Box number${m}: ${l.value}
-            </li>
-            `
-        }).join("")
-    }
-    //create the ul to contain detailed grades and opinion on candidate
-    function divUlCreator(options) {
-        return `
-        <ul>
-        Notes:
-        Grades: ${divRadioLiCreator}
-        </ul>
-        `
-    }
 
 }
 
