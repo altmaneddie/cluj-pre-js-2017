@@ -32,7 +32,7 @@
         destroy: function(){
             destroyEvents():
             button1= undefined;
-            button2= udnefined;
+            button2= undefined;
         }
     }
 

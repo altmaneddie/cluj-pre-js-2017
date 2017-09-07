@@ -1,35 +1,33 @@
-function getPromise(method, url) {
-    return new Promise(function (resolve, reject) {
-        const xhr = new XMLHttpRequest();
-        xhr.onload = function () {
-            if (this.readyState === 4) {
-                if (this.status < 400) {
-                    try {
-                        let response = JSON.parse(xhr.responseText);
-                        return response;
-                    } catch (e) {
-                        console.log(e);
-                    }
-                }
-            }
-        }
-        xhr.open(method, url);
-        xhr.send();
-    }
-    )
-}
+// function getPromise(method, url) {
+//     return new Promise(function (resolve, reject) {
+//         const xhr = new XMLHttpRequest();
+//         xhr.onload = function () {
+//             if (this.readyState === 4) {
+//                 if (this.status < 400) {
+//                     try {
+//                         let response = JSON.parse(xhr.responseText);
+//                         return response;
+//                     } catch (e) {
+//                         console.log(e);
+//                     }
+//                 }
+//             }
+//         }
+//         xhr.open(method, url);
+//         xhr.send();
+//     }
+//     )
+// }
 
-
-interviewApp.addEventsToLogin = function (resolve) {
-    const submitBtn = document.getElementById('submit-btn');
-    const container = document.getElementById('app');
-
+// EVENTS
+interviewApp.addEventsToLogin = function () {
+   
     submitBtn.addEventListener("click", function (e) {
         e.preventDefault();
-        container.innerHTML = interviewApp.EvaluationsPage();
         interviewApp.addEventsToEval();
     })
 }
+//VIEW
 interviewApp.EvaluationsPage = function (options = {}) {
     const tempData = localStorage.getItem("Evaluations");
     const tableData = JSON.parse(tempData);
@@ -169,10 +167,10 @@ interviewApp.detailsCreator = function (el) {
 
 }
 
-getPromise('GET', '../../../src/data/data.json')
-    .then(function (what) {
-        console.log(what);
-    })
-    .catch(function (e) {
-        console.log(e);
-    });
+// getPromise('GET', '../../../src/data/data.json')
+//     .then(function (what) {
+//         console.log(what);
+//     })
+//     .catch(function (e) {
+//         console.log(e);
+//     });

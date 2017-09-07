@@ -1,31 +1,31 @@
-    interviewApp.LoginPage = function () {
-        const LoginContainer = function () {
-            return `<section class="feedback grid">
+interviewApp.LoginPage = function () {
+    const LoginContainer = function () {
+        return `<section class="feedback grid">
         ${LoginHeader()}
         ${LoginForm()}
         <div class="clearfix"></div>
         </sections>
         `
-        }
-    
-         const LoginForm = function () {
-            return `
+    }
+
+    const LoginForm = function () {
+        return `
         <form class="login-form">
             <input type="text" name="userName" placeholder="User Name"> 
             <input type="password" name="pw" placeholder="Password">
             <input type="submit" id="submit-btn" name="login" value="Login">
         </form>
         `
-        }
-    
-        const LoginHeader = function () {
-            return `
+    }
+
+    const LoginHeader = function () {
+        return `
         <p>Interview Feedback</p>
         `
-        }
-    
-        const SubmitFeedbackSection = function () {
-            return `
+    }
+
+    const SubmitFeedbackSection = function () {
+        return `
         <section class="feedback grid">
         <img src="assets/images/new feedback.jpg" class="floatLeft floatLeft-img">
         <h1 class="floatLeft floatLeft-h1">Submit new feedback</h1>
@@ -39,10 +39,10 @@
         <div class="clearfix"></div>
     </sections>
         `
-        }
-    
-        const SubmitFeedbackResults = function () {
-            return `
+    }
+
+    const SubmitFeedbackResults = function () {
+        return `
         <section class="feedback grid">
         <img src="assets/images/results.jpg" class="floatRight floatRight-img">
         <h1 class="floatRight floatRight-h1">View feedback results</h1>
@@ -56,14 +56,17 @@
         <div class="clearfix"></div>
     </section>
         `
-        }
-        
-            return `
+    }
+
+    return `
         ${LoginContainer()}
         ${SubmitFeedbackSection()}
         ${SubmitFeedbackResults()}
         ${interviewApp.Footer()}
         `
-            
-        }
-        
+}
+
+interviewApp.addEventsToLogin = function (variable) {
+    e.preventDefault();
+    interviewApp.addEventsToEval();
+}
