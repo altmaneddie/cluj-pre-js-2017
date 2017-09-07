@@ -27,7 +27,8 @@
     }
 
     const pageGetter = function () {
-        var page = sessionStorage.getItem('page');
+        let page = sessionStorage.getItem('page');
+        let exPage;
 
         if (page === null) {
             page = "login";
@@ -42,7 +43,7 @@
         displayDiv.innerHTML = pageCreator();
     }
 
-    const setUpEvents = function(btn1,btn2,btn3,btn4){
+    const setUpEvents = function (btn1, btn2, btn3, btn4) {
 
     }
     const destroyEvents = function () {
@@ -54,6 +55,10 @@
             render(interviewApp.LoginPage);
             button1 = window.getElementById('submit-btn');
             setUpEvents(button1)
+        } else if (k === 'evaluation') {
+            render(interviewApp.EvaluationsPage);
+            button1 = window.getElementById('submit-btn');
+            button2 = window.getElementById('submit-btn')
         }
     }
 
