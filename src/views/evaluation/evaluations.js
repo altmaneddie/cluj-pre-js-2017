@@ -1,41 +1,50 @@
 function EvaluationsPage(options = {}) {
-    const tableData = getEvalTableData();
-    
+    let tempData = localStorage.getItem("Evaluations");
+    const tableData = JSON.parse(tempData);
+    const tableHeaders = getTableHeaders();
+
     return `
     ${Nav()}
-    ${EvaluationsTable(tableData)}
+    ${EvaluationsTable(tableHeaders, tableData)}
     ${Footer()}
    `
 }
 
 
 function EvaluationsTableHeader(options) {
-   return options.map((el) => 
-         `<th>${el}</th>`
+    return options.map((el) =>
+        `<th>${el}</th>`
     ).join('')
 }
 
 
-function EvaluationTableRow(options={}){
-   return `
+function EvaluationTableRow(options = {}) {
+    return options.map((k) => `
 <tr>
-    <td>${options.name}</td>
-    <td>${options.technology}</td>
-    <td>${options.level} </td>
+    <td>${k.candidate[0].value}</td>
+    <td>Javascript</td>
+    <td>${k.radio[0].value} </td>
     <td>Detalii <button></button></td>
 </tr>
-    `
+    `).join('')
 }
 
 function EvaluationTableBody(options = {}) {
-return options.map((k) => 
-`<tbody>
-${EvaluationTableRow(k)}
-</tbody>`).join('');
+    if (options === null) {
+        return `
+        <tr>
+        <td>No Data recorded yet</td>
+        </tr>
+        `
+    } else {
+        return `<tbody>
+${EvaluationTableRow(options)}
+</tbody>`
+    }
 }
 
 
-function EvaluationsTable(options = {}) {
+function EvaluationsTable(tableHeaders = {}, tableData = {}) {
     return `
 <table align="center">
     <colgroup>
@@ -44,8 +53,12 @@ function EvaluationsTable(options = {}) {
         <col style="width:30%">
         <col style="width:10%">
     </colgroup>
-        ${EvaluationsTableHeader(options.headings)}
-        ${EvaluationTableBody(options.rows)}
+        ${EvaluationsTableHeader(tableHeaders.headings)}
+        ${EvaluationTableBody(tableData)}
 </table>
     `
 }
+
+let tempData = localStorage.getItem("Evaluations");
+const tableData = JSON.parse(tempData);
+console.log(tableData);

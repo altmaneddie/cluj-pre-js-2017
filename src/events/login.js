@@ -6,5 +6,4 @@ function addEventstoLogin(){
     container.innerHTML = EvaluationsPage();
     addEventstoEval();
     })
-    
 }

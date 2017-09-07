@@ -16,34 +16,9 @@
 
 
 // Evaluations page
-function getEvalTableData(){
+function getTableHeaders(){
     return {
-        headings: ["Nume", "Technology", "Nivel", ""],
-        rows: [
-            {
-                name: "Adrian Popescu",
-                technology: "Javascript",
-                level: "Mid 2"
-            },
-        
-            {
-                name: "Dragan Roxana",
-                technology: "PHP",
-                level: "Mid 1"
-            },
-        
-            {
-                name: "Florescu Mihai",
-                technology: "Javascript",
-                level: "Junior 3"
-            },
-            
-            {
-                name: "Gheorghe Andrei",
-                technology: "Ruby",
-                level: "Senior 1"
-            }
-        ]
+        headings: ["Nume", "Technology", "Nivel", ""]
     }
 }
 
