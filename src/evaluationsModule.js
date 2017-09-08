@@ -1,30 +1,30 @@
-// function getPromise(method, url) {
-//     return new Promise(function (resolve, reject) {
-//         const xhr = new XMLHttpRequest();
-//         xhr.onload = function () {
-//             if (this.readyState === 4) {
-//                 if (this.status < 400) {
-//                     try {
-//                         let response = JSON.parse(xhr.responseText);
-//                         return response;
-//                     } catch (e) {
-//                         console.log(e);
-//                     }
-//                 }
-//             }
-//         }
-//         xhr.open(method, url);
-//         xhr.send();
-//     }
-//     )
-// }
+function getPromise(method, url) {
+    return new Promise(function (resolve, reject) {
+        const xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            if (this.readyState === 4) {
+                if (this.status < 400) {
+                    try {
+                        let response = JSON.parse(xhr.responseText);
+                        return response;
+                    } catch (e) {
+                        console.log(e);
+                    }
+                }
+            }
+        }
+        xhr.open(method, url);
+        xhr.send();
+    }
+    )
+}
 
 // EVENTS
 interviewApp.addEventsToLogin = function () {
    
     submitBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        interviewApp.addEventsToEval();
+        sessionStorage
+
     })
 }
 //VIEW
@@ -167,10 +167,10 @@ interviewApp.detailsCreator = function (el) {
 
 }
 
-// getPromise('GET', '../../../src/data/data.json')
-//     .then(function (what) {
-//         console.log(what);
-//     })
-//     .catch(function (e) {
-//         console.log(e);
-//     });
+getPromise('GET', '../../../src/data/data.json')
+    .then(function (what) {
+        console.log(what);
+    })
+    .catch(function (e) {
+        console.log(e);
+    });

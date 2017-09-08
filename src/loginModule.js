@@ -1,4 +1,4 @@
-interviewApp.LoginPage = function () {
+interviewApp.loginPage = function () {
     const LoginContainer = function () {
         return `<section class="feedback grid">
         ${LoginHeader()}
@@ -66,7 +66,13 @@ interviewApp.LoginPage = function () {
         `
 }
 
-interviewApp.addEventsToLogin = function (variable) {
-    e.preventDefault();
-    interviewApp.addEventsToEval();
+interviewApp.loginEvents = function () {
+    const submitBtn = document.getElementById("submit-btn");
+
+    submitBtn.addEventListener("click", function(e){
+        e.preventDefault();
+        pageGetter("evaluation");
+    })
+    
+   
 }

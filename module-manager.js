@@ -26,48 +26,57 @@
         )
     }
 
-    const pageGetter = function () {
-        let page = sessionStorage.getItem('page');
-        let exPage;
+    const pageGetter = function (k) {
+        page = sessionStorage.getItem('page');
 
         if (page === null) {
             page = "login";
             sessionStorage.getItem('page', 'login');
-            return page;
         } else {
-            return page;
+            sessionStorage.setItem("exPage", page);
+            sessionStorage.setItem("page", k);
         }
     }
 
     const render = function (pageCreator) {
+
         displayDiv.innerHTML = pageCreator();
     }
 
-    const setUpEvents = function (btn1, btn2, btn3, btn4) {
-
+    const setUpEvents = function () {
+        
     }
     const destroyEvents = function () {
 
     }
 
-    const init = function (k) {
-        if (k === 'login') {
-            render(interviewApp.LoginPage);
-            button1 = window.getElementById('submit-btn');
-            setUpEvents(button1)
-        } else if (k === 'evaluation') {
-            render(interviewApp.EvaluationsPage);
-            button1 = window.getElementById('submit-btn');
-            button2 = window.getElementById('submit-btn')
+    const ModuleManager = function () {
+        let k = JSON.parse(sessionStorage.getItem('page'));
+        let m = JSON.parse(sessionStorage.getItem('exPage'))
+
+        init: function (k) {
+            render(k);
+            setUpEvents(k);
         }
+        destroy: function(m){
+            destroyEvents(m);
+            button1 = undefined;
+            button2 = undefined;
+            button3 = undefined;
+            button4 = undefined;
+        }
+
+
     }
 
 
-    getPromise('GET', '/src/data/data.json')
-        .then(function (what) {
-            console.log(what);
-        })
-        .catch(function (e) {
-            console.log(e);
-        });
-})()
+
+
+        getPromise('GET', '/src/data/data.json')
+            .then(function (what) {
+                console.log(what);
+            })
+            .catch(function (e) {
+                console.log(e);
+            });
+    })()

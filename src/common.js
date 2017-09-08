@@ -18,3 +18,7 @@ interviewApp.Footer = function () {
     `
 }
 
+
+interviewApp.moveToLoginPage = function(){
+    sessionStorage.setItem
+}
