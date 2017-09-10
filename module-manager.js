@@ -1,82 +1,42 @@
+var interviewApp = {};
 (function () {
-    const displayDiv = document.getElementById("app");
-    let btn1;
-    let btn2;
-    let btn3;
-    let btn4;
+    const container = document.getElementById(`app`);
+    let module = null;
 
-    function getPromise(method, url) {
-        return new Promise(function (resolve, reject) {
-            const xhr = new XMLHttpRequest();
-            xhr.onload = function () {
-                if (this.readyState === 4) {
-                    if (this.status < 400) {
-                        try {
-                            let response = JSON.parse(xhr.responseText);
-                            return response;
-                        } catch (e) {
-                            console.log(e);
-                        }
-                    }
-                }
-            }
-            xhr.open(method, url);
-            xhr.send();
+
+    const checkIfLogged = function () {
+        const isLogged = function () {
+            return !!window.localStorage.getItem('userData');
         }
-        )
-    }
-
-    const pageGetter = function (k) {
-        page = sessionStorage.getItem('page');
-
-        if (page === null) {
-            page = "login";
-            sessionStorage.getItem('page', 'login');
-        } else {
-            sessionStorage.setItem("exPage", page);
-            sessionStorage.setItem("page", k);
+        if (!isLogged()) {
+            return 'login'
         }
+        return ''
     }
 
-    const render = function (pageCreator) {
 
-        displayDiv.innerHTML = pageCreator();
-    }
-
-    const setUpEvents = function () {
-        
-    }
-    const destroyEvents = function () {
-
-    }
-
-    const ModuleManager = function () {
-        let k = JSON.parse(sessionStorage.getItem('page'));
-        let m = JSON.parse(sessionStorage.getItem('exPage'))
-
-        init: function (k) {
-            render(k);
-            setUpEvents(k);
+    interviewApp.navigate = function (page) {
+        if (typeof page !== 'string') {
+            page = 'login';
         }
-        destroy: function(m){
-            destroyEvents(m);
-            button1 = undefined;
-            button2 = undefined;
-            button3 = undefined;
-            button4 = undefined;
+        if (module) {
+            module.destroy();
         }
+        if (checkIfLogged() != '') {
+            page = checkIfLogged();
+        }
+        module = interviewApp[page];
+        module.init(container);
 
+        sessionStorage.setItem(`currentPage`, page)
 
+    };
+
+    interviewApp.startup = function () {
+        let currentPage = sessionStorage.getItem('currentPage');
+        interviewApp.navigate(currentPage);
     }
-
-
-
-
-        getPromise('GET', '/src/data/data.json')
-            .then(function (what) {
-                console.log(what);
-            })
-            .catch(function (e) {
-                console.log(e);
-            });
-    })()
+})();
+window.addEventListener("load", function () {
+    interviewApp.startup();
+})

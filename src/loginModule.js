@@ -1,31 +1,34 @@
-interviewApp.loginPage = function () {
-    const LoginContainer = function () {
-        return `<section class="feedback grid">
+(function () {
+
+    const render = function (container, pageContent) {
+
+        const LoginContainer = function () {
+            return `<section class="feedback grid">
         ${LoginHeader()}
         ${LoginForm()}
         <div class="clearfix"></div>
         </sections>
         `
-    }
+        }
 
-    const LoginForm = function () {
-        return `
+        const LoginForm = function () {
+            return `
         <form class="login-form">
             <input type="text" name="userName" placeholder="User Name"> 
             <input type="password" name="pw" placeholder="Password">
             <input type="submit" id="submit-btn" name="login" value="Login">
         </form>
         `
-    }
+        }
 
-    const LoginHeader = function () {
-        return `
+        const LoginHeader = function () {
+            return `
         <p>Interview Feedback</p>
         `
-    }
+        }
 
-    const SubmitFeedbackSection = function () {
-        return `
+        const SubmitFeedbackSection = function () {
+            return `
         <section class="feedback grid">
         <img src="assets/images/new feedback.jpg" class="floatLeft floatLeft-img">
         <h1 class="floatLeft floatLeft-h1">Submit new feedback</h1>
@@ -39,10 +42,10 @@ interviewApp.loginPage = function () {
         <div class="clearfix"></div>
     </sections>
         `
-    }
+        }
 
-    const SubmitFeedbackResults = function () {
-        return `
+        const SubmitFeedbackResults = function () {
+            return `
         <section class="feedback grid">
         <img src="assets/images/results.jpg" class="floatRight floatRight-img">
         <h1 class="floatRight floatRight-h1">View feedback results</h1>
@@ -56,23 +59,40 @@ interviewApp.loginPage = function () {
         <div class="clearfix"></div>
     </section>
         `
-    }
+        }
 
-    return `
+        const LoginContent = function (option = {}) {
+            return `
         ${LoginContainer()}
         ${SubmitFeedbackSection()}
         ${SubmitFeedbackResults()}
         ${interviewApp.Footer()}
         `
-}
+        }
+        container.innerHTML = `${LoginContent(pageContent)}`
+    }
 
-interviewApp.loginEvents = function () {
-    const submitBtn = document.getElementById("submit-btn");
+    const logIn = function (event) {
+        event.preventDefault();
+        interviewApp.navigate('evaluation');
+    }
+    const setupEvents = function () {
+        loginButton.addEventListener('submit', logIn);
+    }
+    const removeEvents = function () {
+        loginButton.removeEventListener('submit', loginButton);
+    }
 
-    submitBtn.addEventListener("click", function(e){
-        e.preventDefault();
-        pageGetter("evaluation");
-    })
-    
-   
-}
+    interviewApp.login = {
+        init: function (container) {
+            let pageContent;
+            render(container, pageContent);
+            loginButton = document.getElementById('login-form');
+            setupEvents();
+        },
+        destroy: function () {
+            removeEvents();
+            loginButton = undefined;
+        }
+    }
+})()
