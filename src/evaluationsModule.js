@@ -115,7 +115,7 @@ ${EvaluationTableRow(options)}
         `
         }
         detailsCreator = function (el) {
-            //search for displayed divs.
+            //search for displayed divs
             alreadyDisplayedDiv = document.querySelectorAll(".displayedDetailDiv");
 
             if (alreadyDisplayedDiv.length !== 0) {
