@@ -1,22 +1,23 @@
-function addEventstoNewEval(){
+function addEventsToNewEval() {
     const evalBtn = document.getElementById('evaluationBtn');
     const logoutBtn = document.getElementById('logoutBtn');
     const container = document.getElementById('app');
     const submitBtn = document.getElementById('submitBtn');
-    evalBtn.addEventListener("click",function(e){
+
+    evalBtn.addEventListener("click", function (e) {
         event.preventDefault();
         container.innerHTML = EvaluationsPage();
-        addEventstoEval();
+        addEventsToEval();
     })
-    logoutBtn.addEventListener("click",function(e){
+    logoutBtn.addEventListener("click", function (e) {
         event.preventDefault();
         container.innerHTML = LoginPage();
-        addEventstoLogin();
+        addEventsToLogin();
     })
-    submitBtn.addEventListener("click", function(e){
+    submitBtn.addEventListener("click", function (e) {
         e.preventDefault();
-        getSubmitedData();
+        getSubmittedData();
         container.innerHTML = EvaluationsPage()
-        addEventstoEval()
+        addEventsToEval()
     })
 }   

@@ -12,7 +12,7 @@ function Nav(options= {}){
 
 function Footer(){
     return `
-<footer>
+<footer class="footer">
     Copyright@Softvision 2017
 </footer>
     `

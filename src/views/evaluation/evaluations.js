@@ -1,5 +1,5 @@
 function EvaluationsPage(options = {}) {
-    let tempData = localStorage.getItem("Evaluations");
+    const tempData = localStorage.getItem("Evaluations");
     const tableData = JSON.parse(tempData);
     const tableHeaders = getTableHeaders();
 
@@ -24,7 +24,7 @@ function EvaluationTableRow(options = {}) {
     <td>${k.candidate[0].value}</td>
     <td>Javascript</td>
     <td>${k.radio[0].value} </td>
-    <td>Detalii <button></button></td>
+    <td>Detalii<button class="detailsBtn"></button></td>
 </tr>
     `).join('')
 }
@@ -43,7 +43,6 @@ ${EvaluationTableRow(options)}
     }
 }
 
-
 function EvaluationsTable(tableHeaders = {}, tableData = {}) {
     return `
 <table align="center">
@@ -59,6 +58,89 @@ function EvaluationsTable(tableHeaders = {}, tableData = {}) {
     `
 }
 
-let tempData = localStorage.getItem("Evaluations");
-const tableData = JSON.parse(tempData);
-console.log(tableData);
+
+const detailsCreator = function (el) {
+    //search for dispalyed divs.
+    alreadyDisplayedDiv = document.getElementsByClassName("displayedDetailDiv");
+
+    if (alreadyDisplayedDiv !== null) {
+        //kill already displayed div
+        let xParent = alreadyDisplayedDiv.parentNode;
+        xParent.removeChild(alreadyDisplayedDiv);
+        //create new div
+        divCreator(el);
+        //add events to new div
+        divAddEvent(el);
+    } else {
+        //create new div
+        divCreator(el);
+        //add events to new div
+        divAddEvent(el);
+    }
+    //div creation function
+    function divCreator(elem) {
+        //Div creation
+        let detailDiv = document.createElement("div");
+        detailDiv.setAttribute("class", "displayedDetailDiv");
+        //Get parent
+        const trParent = elem.parentNode.parentNode.parentNode; //doubt it works
+        //Apend 
+        trParent.appendChild(detailDiv);
+    }
+    //add events to new div
+    function divAddEvent(elem) {
+        //change display
+        elem.className = "minusBtn";
+        //add events to minus button
+        elem.addEventListner("click", function () {
+            const divSibling = elem.parentNode.nextSibling;
+            divSibling.parentNode.removeChild(divSibling);
+        })
+    }
+    //find the correct data and populate the apropiate div
+    function divInnerHtml(elem) {
+        //find it's index
+        function findIndex() {
+            var i = 0;
+            while ((child = child.previousSibling) != null) {
+                i++;
+            }
+            return i;
+        }
+        //get to localStorage
+        const myIndex = findIndex(elem);
+        const tempData = localStorage.getItem("Evaluations");
+        const tableData = JSON.parse(tempData);
+        //DISPLAY PART
+        //li dropdown creator for div
+        function divDropDownLiCreator(options = {}) {
+            return options.map((k) => {
+                return `
+                <li>
+                ${k.name}:${options.value}
+                </li>
+                `
+            }).join("")
+        }
+        //li Textarea creator for div
+        function divTextAreaCreator(options = {}) {
+            return options.map((l, m) => {
+                return `
+            <li>
+            Box number${m}: ${l.value}
+            </li>
+            `
+            }).join("")
+        }
+        //create the ul to contain detailed grades and opinion on candidate
+        function divUlCreator(options) {
+            return `
+        <ul>
+        Notes:
+        Grades: ${divRadioLiCreator}
+        </ul>
+        `
+        }
+
+    }
+}

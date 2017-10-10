@@ -17,14 +17,13 @@ function NewEvaluationForm(options = {}) {
     ${Footer()}
     `
 }
-
 // Candidate details function STATIC
 function CandidateDetailsForm(options = {}) {
     return `
         <form class="main-form">
         <div class="data-form">
-            <input type="text" class="cosmin-test" placeholder="Candidate" name="Candidate">
-            <input type="text" class="cosmin-test" placeholder="Interviewer" name="Interviewer">
+            <input type="text" class="candidateDetails" placeholder="Candidate" name="Candidate">
+            <input type="text" class="candidateDetails" placeholder="Interviewer" name="Interviewer">
             <input type="date">
         </div>
      `
@@ -86,8 +85,8 @@ function Textarea(options = {}) {
 function Fieldset(options) {
     return options.fieldset.map((k) =>
         `
-    <legend class="eval-forms-title">${k.legend}</legend>
-    <ul class="eval-forms">
+    <legend class="evalForms-title">${k.legend}</legend>
+    <ul class="evalForms">
     ${FieldsetLiCreator(k)}
     </ul>
     `).join('')
@@ -112,26 +111,28 @@ function FieldsetOptionsCreator(options) {
         <option  value="${n}">${n}</option>
         `).join('')
 }
-
-
 // create the "Evaluation" option
-function addPlaceHolder() {
-    const fieldsetParentOfOption = document.getElementsByTagName('SELECT');
-console.log(fieldsetParentOfOption);
-    const fieldsetEvalNode = function () {
-        return
-        `
-    <option selected disabled hidden>Evaluation</option>
-    `}
+const addPlaceHolder = function () {
 
-    function fieldsetEvalOptAdder(parents) {
-        parents.forEach(function (parent) {
-            parent.insertBefore(fieldsetEvalNode, parent.firstChild);
-        })
-    }
-    fieldsetEvalOptAdder(fieldsetParentOfOption);
+    const fieldsetParentOfOption = document.querySelectorAll('SELECT');
+
+
+    fieldsetParentOfOption.forEach(function (selectOpt) {
+        const fieldsetEvalNode = document.createElement("OPTION");
+
+        selectOpt.insertBefore(fieldsetEvalNode, selectOpt.firstChild);
+    })
+    hidePlaceHolder(fieldsetParentOfOption);
 }
 
+const hidePlaceHolder = function (el) {
 
+    el.forEach(function (k) {
 
+        z = k.firstChild
 
+        z.setAttribute("hidden", "TRUE");
+        z.setAttribute("selected", "TRUE");
+        z.innerHTML = "Evaluate";
+    })
+}
